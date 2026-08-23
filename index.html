@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>البرمجة والذكاء الاصطناعي — الصف الثاني الثانوي | م. محمود محمد</title>
+<meta name="description" content="جولة داخل منهج البرمجة والذكاء الاصطناعي للصف الثاني الثانوي — الفصول والدروس والأفكار الرئيسة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#07161a;
+    --panel:#0e2226;
+    --panel-2:#0b1c20;
+    --teal:#1fa6a0;
+    --teal-b:#3fd9c7;
+    --amber:#f2b134;
+    --ink:#eef7f6;
+    --dim:#9fc4c0;
+    --line:rgba(63,217,199,.18);
+    --line-2:rgba(63,217,199,.42);
+    --mono:"IBM Plex Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);color:var(--ink);font-family:"Cairo",sans-serif;
+    overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.7;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 20px;}
+  a{color:inherit;text-decoration:none;}
+  :focus-visible{outline:2px solid var(--teal-b);outline-offset:3px;border-radius:6px;}
+
+  /* ===== nav ===== */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(7,22,26,.86);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;}
+  .brand .mark{
+    width:30px;height:30px;border-radius:9px;flex:none;
+    background:linear-gradient(135deg,var(--teal-b),var(--teal));
+    color:#062023;display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:13px;font-weight:600;
+  }
+  .navlinks{display:flex;gap:18px;font-size:14px;font-weight:700;color:var(--dim);}
+  .navlinks a:hover{color:var(--teal-b);}
+  @media(max-width:720px){.navlinks{display:none;}}
+
+  /* ===== hero ===== */
+  header{
+    padding:64px 0 46px;
+    background:
+      radial-gradient(circle at 85% 0%, rgba(63,217,199,.16), transparent 55%),
+      radial-gradient(circle at 5% 100%, rgba(242,177,52,.09), transparent 50%);
+  }
+  .kicker{
+    display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);
+    font-size:12px;color:var(--teal-b);border:1px solid var(--line);
+    background:rgba(63,217,199,.06);padding:6px 13px;border-radius:999px;margin-bottom:20px;
+  }
+  .kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 9px var(--amber);}
+  header h1{font-size:clamp(32px,6vw,56px);font-weight:900;line-height:1.18;letter-spacing:-.5px;}
+  header h1 span{color:var(--teal-b);}
+  header p.sub{margin-top:16px;font-size:17px;color:var(--dim);font-weight:600;max-width:60ch;}
+  .stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+  .stat{
+    border:1px solid var(--line);background:rgba(63,217,199,.05);
+    border-radius:13px;padding:11px 16px;min-width:112px;
+  }
+  .stat .n{font-family:var(--mono);font-size:21px;font-weight:600;color:var(--teal-b);}
+  .stat .l{font-size:12.5px;color:var(--dim);font-weight:700;}
+
+  /* ===== section frame ===== */
+  section{padding:52px 0;border-top:1px solid var(--line);}
+  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:8px;}
+  .sec-head h2{font-size:25px;font-weight:900;white-space:nowrap;}
+  .sec-head .rule{flex:1;height:1px;background:var(--line);}
+  .sec-head .badge{font-family:var(--mono);font-size:11px;color:var(--dim);white-space:nowrap;}
+  .sec-sub{color:var(--dim);font-weight:600;margin-bottom:26px;max-width:66ch;}
+
+  /* ===== term tabs ===== */
+  .tabs{display:flex;gap:8px;margin-bottom:26px;flex-wrap:wrap;}
+  .tab{
+    font-family:inherit;font-size:14.5px;font-weight:800;cursor:pointer;
+    border:1px solid var(--line);background:transparent;color:var(--dim);
+    padding:10px 18px;border-radius:11px;transition:.18s;
+  }
+  .tab:hover{color:var(--ink);border-color:var(--line-2);}
+  .tab[aria-selected="true"]{
+    background:linear-gradient(90deg,var(--teal),var(--teal-b));color:#062023;border-color:transparent;
+  }
+
+  /* ===== chapter cards ===== */
+  .chapter{
+    border:1px solid var(--line);border-radius:20px;overflow:hidden;
+    background:linear-gradient(180deg,var(--panel),var(--panel-2));margin-bottom:16px;
+  }
+  .ch-head{
+    display:flex;align-items:center;gap:14px;padding:18px 20px;
+    border-bottom:1px solid var(--line);
+  }
+  .ch-num{
+    flex:none;width:42px;height:42px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:15px;font-weight:600;color:#062023;
+    background:linear-gradient(135deg,var(--teal-b),var(--teal));
+  }
+  .chapter[data-accent="amber"] .ch-num{background:linear-gradient(135deg,var(--amber),#d8952a);}
+  .ch-head h3{font-size:19px;font-weight:900;}
+  .ch-head .meta{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:2px;}
+  .ch-head .count{
+    margin-right:auto;font-family:var(--mono);font-size:11px;color:var(--teal-b);
+    border:1px solid var(--line);padding:5px 11px;border-radius:999px;white-space:nowrap;
+  }
+
+  .lessons{padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media(max-width:760px){.lessons{grid-template-columns:1fr;}}
+  .lesson{
+    border:1px solid var(--line);border-radius:15px;background:rgba(63,217,199,.04);
+    padding:0;overflow:hidden;
+  }
+  .lesson summary{
+    list-style:none;cursor:pointer;padding:14px 16px;display:flex;gap:12px;align-items:flex-start;
+  }
+  .lesson summary::-webkit-details-marker{display:none;}
+  .lesson .code{
+    font-family:var(--mono);font-size:12px;color:var(--amber);flex:none;padding-top:2px;
+  }
+  .lesson h4{font-size:15.5px;font-weight:800;}
+  .lesson .tease{font-size:13px;color:var(--dim);font-weight:600;margin-top:3px;}
+  .lesson .chev{
+    margin-right:auto;flex:none;color:var(--teal-b);font-family:var(--mono);font-size:14px;
+    transition:transform .2s;
+  }
+  .lesson[open] .chev{transform:rotate(90deg);}
+  .lesson-body{padding:0 16px 16px;border-top:1px dashed var(--line);margin-top:2px;padding-top:14px;}
+  .lesson-body ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .lesson-body li{
+    font-size:13.5px;color:var(--ink);font-weight:600;padding-right:18px;position:relative;
+  }
+  .lesson-body li::before{
+    content:"›";position:absolute;right:0;top:-1px;color:var(--teal-b);font-family:var(--mono);
+  }
+  .idea{
+    margin-top:13px;border-right:3px solid var(--amber);
+    background:rgba(242,177,52,.07);border-radius:0 11px 11px 0;padding:10px 13px;
+  }
+  .idea .lab{font-family:var(--mono);font-size:10.5px;color:var(--amber);margin-bottom:3px;}
+  .idea p{font-size:13.5px;font-weight:700;}
+  .terms{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
+  .terms span{
+    font-family:var(--mono);font-size:11px;color:var(--teal-b);direction:ltr;
+    border:1px solid var(--line);background:rgba(63,217,199,.05);
+    padding:3px 9px;border-radius:7px;
+  }
+
+  /* ===== soon panel ===== */
+  .soon{
+    border:1px dashed var(--line-2);border-radius:20px;padding:34px 24px;text-align:center;
+    background:rgba(63,217,199,.04);
+  }
+  .soon h3{font-size:20px;font-weight:900;margin-bottom:8px;}
+  .soon p{color:var(--dim);font-weight:600;max-width:52ch;margin:0 auto;}
+  .soon .mono{font-family:var(--mono);font-size:12px;color:var(--teal-b);margin-top:14px;}
+
+  /* ===== how we study ===== */
+  .method{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  @media(max-width:860px){.method{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.method{grid-template-columns:1fr;}}
+  .m-card{
+    border:1px solid var(--line);border-radius:16px;padding:18px 16px;
+    background:linear-gradient(180deg,rgba(63,217,199,.06),transparent);
+  }
+  .m-card .step{font-family:var(--mono);font-size:11px;color:var(--amber);margin-bottom:8px;}
+  .m-card h4{font-size:16px;font-weight:800;margin-bottom:6px;}
+  .m-card p{font-size:13.5px;color:var(--dim);font-weight:600;}
+
+  /* ===== code panel ===== */
+  .code-panel{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#050f11;}
+  .code-header{display:flex;align-items:center;gap:8px;padding:10px 15px;background:#0a1a1d;border-bottom:1px solid var(--line);}
+  .code-header i{width:10px;height:10px;border-radius:50%;display:block;}
+  .code-header .fname{margin-right:auto;font-family:var(--mono);font-size:11px;color:var(--dim);direction:ltr;}
+  .code-body{padding:16px 18px;font-family:var(--mono);font-size:12.5px;line-height:2;direction:ltr;text-align:left;overflow-x:auto;}
+  .code-body b{display:block;white-space:pre;font-weight:400;}
+  .kw{color:#3fd9c7;} .fn{color:#f2b134;} .str{color:#9fe07a;} .cm{color:#5f8a86;}
+
+  /* ===== footer ===== */
+  footer{
+    border-top:1px solid var(--line);padding:40px 0 46px;text-align:center;
+    background:radial-gradient(circle at 50% 0%, rgba(63,217,199,.10), transparent 60%);
+  }
+  .logo-block{display:inline-flex;flex-direction:column;align-items:center;gap:10px;}
+  .logo-img{
+    width:64px;height:64px;border-radius:50%;object-fit:cover;
+    border:2px solid var(--line-2);box-shadow:0 0 0 5px rgba(63,217,199,.08);
+  }
+  .logo-name{font-size:15px;font-weight:800;}
+  .logo-role{font-family:var(--mono);font-size:11px;color:var(--teal-b);}
+  footer .cta{
+    display:inline-flex;align-items:center;gap:8px;margin-top:20px;
+    background:linear-gradient(90deg,var(--teal),var(--teal-b));color:#062023;
+    font-weight:800;font-size:14.5px;padding:12px 24px;border-radius:12px;
+    box-shadow:0 10px 30px -10px rgba(63,217,199,.5);
+  }
+  footer .fine{margin-top:18px;font-size:12px;color:var(--dim);}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
+  .rv.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .rv{opacity:1;transform:none;transition:none;}
+    .lesson .chev{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><span class="mark">&lt;/&gt;</span> البرمجة والذكاء الاصطناعي</div>
+    <div class="navlinks">
+      <a href="#curriculum">المنهج</a>
+      <a href="#method">طريقة الشرح</a>
+      <a href="#join">التسجيل</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="kicker rv"><span class="dot"></span> الصف الثاني الثانوي · العام الدراسي ٢٠٢٦</div>
+    <h1 class="rv">جولة جوّه منهج<br><span>البرمجة والذكاء الاصطناعي</span></h1>
+    <p class="sub rv">
+      المادة مش حفظ. هي رحلة بتبدأ من فهم إزاي التكنولوجيا غيّرت المجتمع،
+      وتعدّي على حماية بياناتك، وتوصل لتحليل البيانات وبناء نماذج التعلّم الآلي وفهم نماذج اللغة الكبيرة.
+      دي خريطة الكتاب كامل — الترمين — قبل ما نبدأ.
+    </p>
+    <div class="stats rv">
+      <div class="stat"><div class="n">2</div><div class="l">ترم دراسي</div></div>
+      <div class="stat"><div class="n">7</div><div class="l">فصول على السنة</div></div>
+      <div class="stat"><div class="n">23</div><div class="l">درس بالتفصيل</div></div>
+      <div class="stat"><div class="n">100%</div><div class="l">تطبيق عملي</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="curriculum">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>خريطة المنهج</h2>
+      <div class="rule"></div>
+      <div class="badge">اضغط على أي درس لتفتحه</div>
+    </div>
+    <p class="sec-sub rv">كل فصل مبني على اللي قبله. الترتيب مقصود — والدرس مش بيخلص غير بمثال محلول وتدريب على نمط الامتحان.</p>
+
+    <div class="tabs rv" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-term="t1">الترم الأول · الفصول ١ – ٤</button>
+      <button class="tab" role="tab" aria-selected="false" data-term="t2">الترم الثاني · الفصول ٥ – ٧</button>
+    </div>
+
+    <!-- ============ TERM 1 ============ -->
+    <div id="t1" class="term">
+
+      <div class="chapter rv">
+        <div class="ch-head">
+          <div class="ch-num">01</div>
+          <div>
+            <h3>تكنولوجيا المعلومات والمجتمع</h3>
+            <div class="meta">chapter_01 · إزاي التكنولوجيا غيّرت طريقة حياتنا</div>
+          </div>
+          <div class="count">٤ دروس</div>
+        </div>
+        <div class="lessons">
+
+          <details class="lesson">
+            <summary>
+              <span class="code">1-1</span>
+              <span><h4>تطور تكنولوجيا المعلومات والتحول الاجتماعي</h4>
+              <span class="tease">خمس تحولات غيّرت المجتمع — وتقنيات لسه بتتولد</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>التحولات الخمسة: مواقع التواصل، التجارة الإلكترونية، العمل عن بُعد، التعلم عبر الإنترنت، الدفع بدون نقد</li>
+                <li>الحوسبة الطرفية: ليه السيارة ذاتية القيادة بتاخد قرارها على متنها مش على السحابة</li>
+                <li>الفرق بين الواقع المعزز (AR) والواقع الافتراضي (VR)</li>
+                <li>الحوسبة الكمومية: قوّتها الحقيقية وحدودها</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>التكنولوجيا الجديدة مش بتضيف أدوات بس — بتغيّر شكل الشغل والتعليم والفلوس نفسها.</p></div>
+              <div class="terms"><span>Edge Computing</span><span>AR</span><span>VR</span><span>Quantum Computing</span></div>
+            </div>
+          </details>
+
+          <details class="lesson">
+            <summary>
+              <span class="code">1-2</span>
+              <span><h4>كيف يعمل الذكاء الاصطناعي</h4>
+              <span class="tease">من البيانات للتدريب للتنبؤ — الصندوق مبقاش أسود</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>دورة العمل: بيانات ← تدريب ← نموذج ← تنبؤ</li>
+                <li>تعلّم الآلة: ليه النموذج بيتعلّم من الأمثلة بدل ما نبرمجه بقواعد</li>
+                <li>جودة البيانات = جودة النتيجة</li>
+                <li>الفرق بين قدرة الآلة وفهم الإنسان</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>الذكاء الاصطناعي بيتنبّأ بناءً على أنماط شافها قبل كده — مش بيفهم زي الإنسان.</p></div>
+              <div class="terms"><span>Machine Learning</span><span>Training Data</span><span>Model</span><span>Prediction</span></div>
+            </div>
+          </details>
+
+          <details class="lesson">
+            <summary>
+              <span class="code">1-3</span>
+              <span><h4>الذكاء الاصطناعي في الحياة اليومية والصناعة</h4>
+              <span class="tease">من ترشيحات الفيديو لحد المصانع والزراعة</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>أنظمة التوصية والمساعدات الصوتية اللي بتستخدمها كل يوم</li>
+                <li>الصحة: المساعدة في التشخيص وقراءة الصور الطبية</li>
+                <li>الصناعة: الصيانة التنبؤية وتقليل التوقفات</li>
+                <li>الزراعة والنقل: قرارات أدق بموارد أقل</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>أكبر قيمة للذكاء الاصطناعي بتظهر لما يشتغل جنب الإنسان، مش لما يستبدله.</p></div>
+              <div class="terms"><span>Recommendation</span><span>Predictive Maintenance</span><span>Automation</span></div>
+            </div>
+          </details>
+
+          <details class="lesson">
+            <summary>
+              <span class="code">1-4</span>
+              <span><h4>القضايا الأخلاقية للذكاء الاصطناعي</h4>
+              <span class="tease">التحيّز والخصوصية والمسؤولية — مين المسؤول لما يغلط؟</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>التحيّز: إزاي بيتسرّب من البيانات للنموذج</li>
+                <li>الخصوصية: بياناتك بتتجمع فين وبتستخدم إزاي</li>
+                <li>الشفافية والمساءلة في القرارات الآلية</li>
+                <li>التزييف العميق والتحقق من المصادر</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>السؤال مش «الآلة تقدر؟» — السؤال «المفروض تعمل كده؟ ومين يتحاسب؟».</p></div>
+              <div class="terms"><span>Bias</span><span>Privacy</span><span>Transparency</span><span>Deepfake</span></div>
+            </div>
+          </details>
+
+        </div>
+      </div>
+
+      <div class="chapter rv">
+        <div class="ch-head">
+          <div class="ch-num">02</div>
+          <div>
+            <h3>الأمن السيبراني</h3>
+            <div class="meta">chapter_02 · تحمي بياناتك إزاي فعليًا</div>
+          </div>
+          <div class="count">٣ دروس</div>
+        </div>
+        <div class="lessons">
+
+          <details class="lesson">
+            <summary>
+              <span class="code">2-1</span>
+              <span><h4>تقنيات التشفير والمصادقة</h4>
+              <span class="tease">إيه اللي بيحصل بالظبط لما تشوف القفل في المتصفح</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>التشفير المتماثل وغير المتماثل والفرق بينهم</li>
+                <li>تدفق اتصال HTTPS: مصافحة TLS ← تبادل المفاتيح ← تبادل البيانات</li>
+                <li>الشهادات الرقمية: مين بيثبت إن الموقع هو هو</li>
+                <li>المصادقة الثنائية (2FA) ومتعددة العوامل (MFA): معرفة + حيازة + سمات حيوية</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>كلمة المرور لوحدها مش كفاية — العامل التاني هو اللي بيوقف معظم الاختراقات.</p></div>
+              <div class="terms"><span>TLS / HTTPS</span><span>2FA</span><span>MFA</span><span>Digital Certificate</span></div>
+            </div>
+          </details>
+
+          <details class="lesson">
+            <summary>
+              <span class="code">2-2</span>
+              <span><h4>تصميم أمن الشبكات</h4>
+              <span class="tease">الدفاع في العمق — طبقة ورا طبقة</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>الجدار الناري وتقسيم الشبكة إلى مناطق</li>
+                <li>مبدأ أقل امتياز: كل واحد يوصل للي يخصّه بس</li>
+                <li>المراقبة واكتشاف السلوك غير الطبيعي</li>
+                <li>تأمين الاتصال عن بُعد</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>مفيش حاجة اسمها حاجز واحد آمن — الأمان بيتبني طبقات، لو واحدة وقعت التانية تمسك.</p></div>
+              <div class="terms"><span>Firewall</span><span>Segmentation</span><span>Least Privilege</span><span>Defense in Depth</span></div>
+            </div>
+          </details>
+
+          <details class="lesson">
+            <summary>
+              <span class="code">2-3</span>
+              <span><h4>الاستجابة للحوادث وإدارة المخاطر</h4>
+              <span class="tease">حصل اختراق… تعمل إيه في أول ساعة؟</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>مراحل الاستجابة: اكتشاف ← احتواء ← استئصال ← تعافٍ ← دروس مستفادة</li>
+                <li>تقييم المخاطر: احتمال الحدوث × حجم الأثر</li>
+                <li>النسخ الاحتياطي وخطة استمرارية العمل</li>
+                <li>توثيق الحادث عشان ميتكررش</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>الجاهزية قبل الحادث بتوفر وقت وخسائر أكتر بكتير من أي رد فعل بعده.</p></div>
+              <div class="terms"><span>Incident Response</span><span>Risk Assessment</span><span>Backup</span></div>
+            </div>
+          </details>
+
+        </div>
+      </div>
+
+      <div class="chapter rv">
+        <div class="ch-head">
+          <div class="ch-num">03</div>
+          <div>
+            <h3>تطبيقات الويب</h3>
+            <div class="meta">chapter_03 · إزاي أي موقع بيشتغل من جوّه</div>
+          </div>
+          <div class="count">٣ دروس</div>
+        </div>
+        <div class="lessons">
+
+          <details class="lesson">
+            <summary>
+              <span class="code">3-1</span>
+              <span><h4>البنية العامة لتطبيقات الويب</h4>
+              <span class="tease">ثلاث طبقات بتتكرر في كل موقع بتفتحه</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>الواجهة الأمامية: الشاشة اللي بيشوفها المستخدم ويتفاعل معاها</li>
+                <li>الواجهة الخلفية: المعالجة والتحكم من جانب الخادم</li>
+                <li>قاعدة البيانات: تخزين وإدارة البيانات</li>
+                <li>نفس الثلاث طبقات في موقع فيديو، شبكة تواصل، ومتجر إلكتروني</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>تقريبًا كل خدمة على الإنترنت مبنية على نفس الثلاث طبقات — بتتغيّر المهام مش التركيب.</p></div>
+              <div class="terms"><span>Frontend</span><span>Backend</span><span>Database</span></div>
+            </div>
+          </details>
+
+          <details class="lesson">
+            <summary>
+              <span class="code">3-2</span>
+              <span><h4>طرق الاتصال في تطبيقات الويب</h4>
+              <span class="tease">الطلب والاستجابة: الحوار اللي بيحصل ورا كل ضغطة</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>دورة الطلب/الاستجابة بين المتصفح والخادم</li>
+                <li>الفرق بين طلب لجلب بيانات وطلب لإرسالها</li>
+                <li>واجهات البرمجة (API) وتبادل البيانات</li>
+                <li>قراءة رموز حالة الاستجابة وفهم الأخطاء</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>الموقع مش صفحة واحدة — هو سلسلة طلبات وردود، كل واحد ليه غرض محدد.</p></div>
+              <div class="terms"><span>HTTP</span><span>Request / Response</span><span>API</span><span>JSON</span></div>
+            </div>
+          </details>
+
+          <details class="lesson">
+            <summary>
+              <span class="code">3-3</span>
+              <span><h4>أساسيات تكنولوجيا الواجهة الأمامية</h4>
+              <span class="tease">HTML بنية · CSS شكل · JavaScript سلوك</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>HTML: هيكل المحتوى ومعناه</li>
+                <li>CSS: التنسيق والألوان والتجاوب مع الشاشات</li>
+                <li>JavaScript: التفاعل والاستجابة لتصرفات المستخدم</li>
+                <li>إزاي التلاتة بيشتغلوا مع بعض في صفحة واحدة</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>كل لغة ليها دور واحد واضح — الخلط بينهم هو أكتر سبب لكود مبعثر.</p></div>
+              <div class="terms"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            </div>
+          </details>
+
+        </div>
+      </div>
+
+      <div class="chapter rv" data-accent="amber">
+        <div class="ch-head">
+          <div class="ch-num">04</div>
+          <div>
+            <h3>تصميم الويب والوسائط</h3>
+            <div class="meta">chapter_04 · تصمّم موقع الناس تستخدمه فعلًا</div>
+          </div>
+          <div class="count">٤ دروس</div>
+        </div>
+        <div class="lessons">
+
+          <details class="lesson">
+            <summary>
+              <span class="code">4-1</span>
+              <span><h4>أنواع الوسائط وخصائصها</h4>
+              <span class="tease">تختار الوسيلة إزاي: تلفزيون ولا موقع ولا بريد؟</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>خصائص النص والصورة والصوت والفيديو</li>
+                <li>مقارنة: التلفزيون، وسائل التواصل، الموقع الإلكتروني، البريد</li>
+                <li>الانتشار مقابل التعمّق مقابل الاستهداف</li>
+                <li>ليه المؤسسة بتستخدم أكتر من وسيلة مع بعض</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>مفيش وسيلة «أفضل» — فيه وسيلة أنسب للغرض والجمهور.</p></div>
+              <div class="terms"><span>Media Types</span><span>Reach</span><span>Interactivity</span></div>
+            </div>
+          </details>
+
+          <details class="lesson">
+            <summary>
+              <span class="code">4-2</span>
+              <span><h4>تصميم المعلومات وتجربة المستخدم</h4>
+              <span class="tease">المستخدم يلاقي اللي عايزه في أقل عدد خطوات</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>ترتيب المعلومات والتسلسل البصري</li>
+                <li>التنقّل الواضح والتسميات المفهومة</li>
+                <li>إمكانية الوصول لكل المستخدمين</li>
+                <li>التصميم المتجاوب على الموبايل</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>التصميم الحلو اللي محدش عارف يستخدمه = تصميم فاشل.</p></div>
+              <div class="terms"><span>UX</span><span>Navigation</span><span>Accessibility</span><span>Responsive</span></div>
+            </div>
+          </details>
+
+          <details class="lesson">
+            <summary>
+              <span class="code">4-3</span>
+              <span><h4>أساليب تقييم المواقع الإلكترونية</h4>
+              <span class="tease">تحكم على موقع بمعايير مش بذوقك</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>قوائم المراجعة ومعايير التقييم</li>
+                <li>اختبار المستخدمين وملاحظة سلوكهم الحقيقي</li>
+                <li>مؤشرات الأداء: السرعة، سهولة الإنجاز، نسبة الخروج</li>
+                <li>تحويل الملاحظات لنقاط قابلة للتنفيذ</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>رأيك في الموقع فرضية — الاختبار هو اللي يثبتها أو ينفيها.</p></div>
+              <div class="terms"><span>Usability Testing</span><span>Checklist</span><span>Metrics</span></div>
+            </div>
+          </details>
+
+          <details class="lesson">
+            <summary>
+              <span class="code">4-4</span>
+              <span><h4>عملية التحسين التكراري للمواقع</h4>
+              <span class="tease">قِس ← افترض ← عدّل ← اختبر تاني</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>دورة التحسين المستمر خطوة بخطوة</li>
+                <li>تغيير واحد في المرة عشان تعرف السبب</li>
+                <li>مقارنة النتائج قبل وبعد</li>
+                <li>توثيق كل تجربة وقرارها</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>الموقع الناجح مش بيتولد كامل — بيتحسّن على دفعات صغيرة متكررة.</p></div>
+              <div class="terms"><span>Iteration</span><span>Hypothesis</span><span>A/B</span></div>
+            </div>
+          </details>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ============ TERM 2 ============ -->
+    <div id="t2" class="term" hidden>
+
+      <div class="chapter rv">
+        <div class="ch-head">
+          <div class="ch-num">05</div>
+          <div>
+            <h3>جمع البيانات وتنقيتها</h3>
+            <div class="meta">chapter_05 · البيانات الغلط بتدّي نتيجة غلط مهما كان التحليل شاطر</div>
+          </div>
+          <div class="count">٣ دروس</div>
+        </div>
+        <div class="lessons">
+
+          <details class="lesson">
+            <summary>
+              <span class="code">5-1</span>
+              <span><h4>طرق جمع البيانات</h4>
+              <span class="tease">العينة بتمثّل الناس فعلًا ولا بتضحك عليك؟</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>المجتمع الإحصائي والعينة: إيه الفرق وإمتى نستخدم كل واحد</li>
+                <li>البيانات الأولية والثانوية واختيار الأنسب للغرض</li>
+                <li>المعاينة العشوائية البسيطة والمعاينة الطبقية</li>
+                <li>أنواع التحيّز: تحيّز الاختيار الذاتي، تحيّز الاستجابة، تحيّز الوقت والموقع</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>التحليل الموثوق بيعتمد على طريقة الجمع، مش على الحساب — عينة غير متوازنة تدّي استنتاجًا واثقًا لكنه خاطئ.</p></div>
+              <div class="terms"><span>Population</span><span>Sample</span><span>Sampling Bias</span><span>Stratified Sampling</span></div>
+            </div>
+          </details>
+
+          <details class="lesson">
+            <summary>
+              <span class="code">5-2</span>
+              <span><h4>تنقية البيانات وتحويلها</h4>
+              <span class="tease">قبل أي تحليل: نظّف الأول</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>التعامل مع القيم المفقودة والصفوف المكررة</li>
+                <li>اكتشاف القيم الشاذة وتقرير نعمل بيها إيه</li>
+                <li>توحيد الصيغ: التواريخ، الوحدات، الأسماء</li>
+                <li>تحويل البيانات لشكل جاهز للتحليل</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>معظم وقت أي محلل بيانات بيروح في التنقية — ودي أكتر خطوة بتحدد جودة النتيجة.</p></div>
+              <div class="terms"><span>Missing Values</span><span>Duplicates</span><span>Outliers</span><span>Transformation</span></div>
+            </div>
+          </details>
+
+          <details class="lesson">
+            <summary>
+              <span class="code">5-3</span>
+              <span><h4>البيانات المفتوحة وواجهات برمجة التطبيقات</h4>
+              <span class="tease">تجيب بيانات حقيقية منين وبأي شروط</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>مصادر البيانات المفتوحة وشروط الاستخدام والتراخيص</li>
+                <li>واجهات برمجة التطبيقات (API) وإزاي بتجيب منها بيانات</li>
+                <li>صيغ البيانات الشائعة: JSON و CSV</li>
+                <li>التحقق من المصدر قبل ما تبني عليه أي استنتاج</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>البيانات المفتوحة مش معناها بلا شروط — المصدر والترخيص جزء من التحليل نفسه.</p></div>
+              <div class="terms"><span>Open Data</span><span>API</span><span>JSON</span><span>CSV</span></div>
+            </div>
+          </details>
+
+        </div>
+      </div>
+
+      <div class="chapter rv">
+        <div class="ch-head">
+          <div class="ch-num">06</div>
+          <div>
+            <h3>التحليل والتواصل</h3>
+            <div class="meta">chapter_06 · تستنتج صح، وتوصّل الاستنتاج صح</div>
+          </div>
+          <div class="count">٣ دروس</div>
+        </div>
+        <div class="lessons">
+
+          <details class="lesson">
+            <summary>
+              <span class="code">6-1</span>
+              <span><h4>الاستدلال الإحصائي</h4>
+              <span class="tease">من عيّنة صغيرة لحكم على مجتمع كامل</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>فرضية العدم وخطوات اختبار الفرضيات</li>
+                <li>فترات الثقة ومعنى «ثقة ٩٥٪» بالظبط</li>
+                <li>مستوى الدلالة وخطأ النوع الأول والثاني والعلاقة بينهم</li>
+                <li>الفرق بين الدلالة الإحصائية والأهمية العملية</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>الاستدلال الإحصائي بيقلّل عدم اليقين، لكنه عمره ما بيلغيه.</p></div>
+              <div class="terms"><span>Null Hypothesis</span><span>Confidence Interval</span><span>p-value</span><span>Type I / II Error</span></div>
+            </div>
+          </details>
+
+          <details class="lesson">
+            <summary>
+              <span class="code">6-2</span>
+              <span><h4>استخدام تحليل الانحدار وتقييمه</h4>
+              <span class="tease">تتنبّأ بقيمة… وتعرف تثق في تنبؤك قد إيه</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>الانحدار الخطي: الميل والتقاطع وقراءة المعادلة</li>
+                <li>تقييم النموذج ومعامل التحديد R²</li>
+                <li>البواقي: إزاي تكشف إن النموذج مش مناسب</li>
+                <li>الارتباط لا يعني السببية</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>النموذج بيوصف علاقة في البيانات اللي عندك — مش قانون طبيعة.</p></div>
+              <div class="terms"><span>Linear Regression</span><span>R²</span><span>Residuals</span><span>Correlation ≠ Causation</span></div>
+            </div>
+          </details>
+
+          <details class="lesson">
+            <summary>
+              <span class="code">6-3</span>
+              <span><h4>تمثيل البيانات المرئي والتواصل</h4>
+              <span class="tease">الرسم الصح بيشرح نفسه — والغلط بيضلّل</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>اختيار نوع الرسم المناسب لنوع البيانات والسؤال</li>
+                <li>الرسوم المضللة: قطع المحور، النِسب الغلط، الألوان</li>
+                <li>سرد قصة بالبيانات لجمهور غير متخصص</li>
+                <li>الوضوح والأمانة قبل الزخرفة</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>التمثيل المرئي جزء من التحليل مش تجميل ليه — اختيار الرسم بيغيّر الاستنتاج.</p></div>
+              <div class="terms"><span>Data Visualization</span><span>Misleading Charts</span><span>Storytelling</span></div>
+            </div>
+          </details>
+
+        </div>
+      </div>
+
+      <div class="chapter rv" data-accent="amber">
+        <div class="ch-head">
+          <div class="ch-num">07</div>
+          <div>
+            <h3>التعلم الآلي والذكاء الاصطناعي</h3>
+            <div class="meta">chapter_07 · من أول خوارزمية لحد نماذج اللغة الكبيرة</div>
+          </div>
+          <div class="count">٣ دروس</div>
+        </div>
+        <div class="lessons">
+
+          <details class="lesson">
+            <summary>
+              <span class="code">7-1</span>
+              <span><h4>أساسيات التعلم الآلي</h4>
+              <span class="tease">تصنيف، تجميع، وتعلّم بالمكافأة</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>التعلّم المُشرف وغير المُشرف: الفرق في وجود الوسوم</li>
+                <li>التصنيف مقابل التجميع وخوارزمية k-means</li>
+                <li>التعلّم المعزز: الوكيل والبيئة والمكافأة</li>
+                <li>تفسير النتائج وفحص معقوليتها قبل استخدامها</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>نوع المسألة هو اللي بيحدد الخوارزمية — مش العكس.</p></div>
+              <div class="terms"><span>Supervised</span><span>Unsupervised</span><span>k-means</span><span>Reinforcement Learning</span></div>
+            </div>
+          </details>
+
+          <details class="lesson">
+            <summary>
+              <span class="code">7-2</span>
+              <span><h4>الشبكات العصبية والتعلم العميق</h4>
+              <span class="tease">طبقات فوق بعض بتتعلم أنماط أعقد</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>العصبون الصناعي والأوزان والدوال</li>
+                <li>الطبقات: مُدخلة، مخفية، مُخرجة</li>
+                <li>إزاي الشبكة بتتدرّب وبتصحّح نفسها</li>
+                <li>تطبيقات: الرؤية الحاسوبية ومعالجة الكلام</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>العمق بيدّي قوة أكبر — وبيدّي كمان تعقيد أصعب في التفسير.</p></div>
+              <div class="terms"><span>Neural Network</span><span>Layers</span><span>Weights</span><span>Deep Learning</span></div>
+            </div>
+          </details>
+
+          <details class="lesson">
+            <summary>
+              <span class="code">7-3</span>
+              <span><h4>نماذج اللغة الكبيرة والذكاء الاصطناعي التوليدي</h4>
+              <span class="tease">إزاي بيكتب جملة — وليه بيهلوس أحيانًا</span></span>
+              <span class="chev">›</span>
+            </summary>
+            <div class="lesson-body">
+              <ul>
+                <li>التنبؤ بالرمز التالي: أصل عمل نموذج اللغة</li>
+                <li>الهلوسة: ليه بيطلع كلام مقبول شكلًا وغلط مضمونًا</li>
+                <li>الضبط بالتعلّم المعزز من التفضيلات البشرية (RLHF)</li>
+                <li>الذكاء الاصطناعي متعدد الوسائط: نص وصورة وصوت</li>
+              </ul>
+              <div class="idea"><div class="lab">الفكرة الرئيسة</div>
+                <p>النموذج بيختار الأقرب احتمالًا مش الأصح دايمًا — فالتحقق مسؤوليتك إنت.</p></div>
+              <div class="terms"><span>LLM</span><span>Next-token Prediction</span><span>Hallucination</span><span>RLHF</span><span>Multimodal</span></div>
+            </div>
+          </details>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="method">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>هنذاكر إزاي</h2>
+      <div class="rule"></div>
+      <div class="badge">نفس الترتيب في كل درس</div>
+    </div>
+    <p class="sec-sub rv">كل درس بيمشي على أربع خطوات ثابتة — عشان تعرف إنت واقف فين ومحتاج تكمّل إيه.</p>
+
+    <div class="method rv">
+      <div class="m-card">
+        <div class="step">01</div>
+        <h4>المصطلحات الأساسية</h4>
+        <p>نمسك مصطلحات الدرس بالعربي والإنجليزي الأول، قبل أي شرح.</p>
+      </div>
+      <div class="m-card">
+        <div class="step">02</div>
+        <h4>الفكرة الرئيسة</h4>
+        <p>جملة واحدة تلخّص الدرس — لو فهمتها، فهمت الباقي.</p>
+      </div>
+      <div class="m-card">
+        <div class="step">03</div>
+        <h4>مثال محلول</h4>
+        <p>نحلّ سوا خطوة بخطوة ونشوف الغلط بيحصل فين وليه.</p>
+      </div>
+      <div class="m-card">
+        <div class="step">04</div>
+        <h4>تدرّب وامتحن</h4>
+        <p>أسئلة تدريب وسؤال على نمط الامتحان في نهاية كل درس.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="join">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>البداية</h2>
+      <div class="rule"></div>
+      <div class="badge">التسجيل مفتوح</div>
+    </div>
+    <div class="code-panel rv">
+      <div class="code-header">
+        <i style="background:#e6685a"></i><i style="background:#ecc157"></i><i style="background:#57c896"></i>
+        <span class="fname">first_lesson.py</span>
+      </div>
+      <div class="code-body">
+<b><span class="cm"># رحلة سنة كاملة: ترمين، فصل ورا فصل</span></b>
+<b><span class="kw">class</span> <span class="fn">Journey</span>:</b>
+<b>    subject    = <span class="str">"البرمجة والذكاء الاصطناعي"</span></b>
+<b>    grade      = <span class="str">"الصف الثاني الثانوي"</span></b>
+<b>    instructor = <span class="str">"Mahmoud Mohammed"</span></b>
+<b>    terms      = [<span class="str">"الترم الأول"</span>, <span class="str">"الترم الثاني"</span>]</b>
+<b></b>
+<b>    <span class="kw">def</span> <span class="fn">start</span>(self):</b>
+<b>        <span class="kw">print</span>(<span class="str">"استعدوا... التسجيل مفتوح 🚀"</span>)</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo-block">
+      <img class="logo-img" src="data:image/jpeg;base64,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" alt="محمود محمد">
+      <div class="logo-name">Mahmoud Mohammed</div>
+      <div class="logo-role">مهندس برمجيات</div>
+    </div>
+    <div><a class="cta" href="#">📩 للتسجيل تواصلوا معايا</a></div>
+    <div class="fine">البرمجة والذكاء الاصطناعي · الصف الثاني الثانوي · الترم الأول والثاني</div>
+  </div>
+</footer>
+
+<script>
+  // term tabs
+  document.querySelectorAll('.tab').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.tab').forEach(function(b){ b.setAttribute('aria-selected','false'); });
+      btn.setAttribute('aria-selected','true');
+      document.querySelectorAll('.term').forEach(function(t){ t.hidden = true; });
+      document.getElementById(btn.dataset.term).hidden = false;
+    });
+  });
+
+  // reveal on scroll
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
