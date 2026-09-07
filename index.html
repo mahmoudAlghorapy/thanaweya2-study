@@ -248,6 +248,44 @@
   .site-nav a:hover{border-color:var(--line-strong);background:rgba(63,217,199,.08);color:var(--teal-bright);}
   .site-nav .active{background:rgba(63,217,199,.12);border-color:var(--line-strong);color:var(--teal-bright);}
   .site-nav .nav-wa{background:linear-gradient(90deg,var(--teal),var(--teal-bright));color:#062023;}
+  .visitor-badge{
+    display:inline-flex;align-items:center;gap:5px;
+    font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:700;
+    color:var(--amber);border:1px solid var(--line);border-radius:10px;
+    padding:6px 11px;background:rgba(242,177,52,.08);white-space:nowrap;
+  }
+
+  /* ---------- registration modal ---------- */
+  .modal-overlay{
+    position:fixed;inset:0;z-index:50;display:none;
+    align-items:center;justify-content:center;
+    background:rgba(3,10,12,.72);padding:16px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal-box{
+    width:100%;max-width:380px;background:linear-gradient(180deg,var(--bg-panel),#071417 70%);
+    border:1px solid var(--line-strong);border-radius:20px;padding:24px 22px 22px;
+    position:relative;box-shadow:0 30px 80px -20px rgba(0,0,0,.85);
+  }
+  .modal-box h3{font-size:19px;font-weight:900;margin-bottom:16px;}
+  .modal-close{
+    position:absolute;top:12px;left:14px;background:none;border:none;
+    color:var(--ink-dim);font-size:18px;cursor:pointer;line-height:1;
+  }
+  .modal-box label{display:block;font-size:13px;font-weight:700;color:var(--ink-dim);margin-bottom:12px;}
+  .modal-box input{
+    width:100%;margin-top:6px;padding:11px 12px;border-radius:10px;
+    border:1px solid var(--line);background:rgba(255,255,255,.03);
+    color:var(--ink);font-family:"Cairo",sans-serif;font-size:14px;
+  }
+  .modal-box input:focus{outline:none;border-color:var(--line-strong);}
+  .modal-box button[type="submit"]{
+    width:100%;margin-top:4px;padding:12px;border:none;border-radius:12px;
+    background:linear-gradient(90deg,var(--teal),var(--teal-bright));
+    color:#062023;font-weight:800;font-size:15px;cursor:pointer;
+  }
+  .modal-box button[type="submit"]:disabled{opacity:.6;cursor:default;}
+  #regMsg{margin-top:12px;font-size:13px;font-weight:700;text-align:center;min-height:18px;}
   @media (max-width:760px){
     .stage{padding:8px 6px 28px;}
     .poster{border-radius:18px;}
@@ -288,7 +326,8 @@
         <a href="intro.html">📚 خريطة المنهج</a>
         <a href="شرح_المنهج_من_الفصل_1_إلى_7.html">📖 شرح المنهج</a>
         <a href="اسئلة_الكتاب_كاملة_الفصول_1_7.html">📝 أسئلة الكتاب</a>
-        <a class="nav-wa" href="https://wa.me/201023958338" target="_blank" rel="noopener noreferrer">📲 التسجيل</a>
+        <a class="nav-wa" href="#" id="btn-register">📲 التسجيل</a>
+        <span class="visitor-badge" id="visitorBadge" title="عدد زوار الموقع">👀 <span id="visitorCount">…</span></span>
       </nav>
     </div>
 
@@ -465,5 +504,92 @@
 
   </div>
 </div>
+
+<div class="modal-overlay" id="regModalOverlay">
+  <div class="modal-box">
+    <button class="modal-close" id="regModalClose" aria-label="إغلاق">✕</button>
+    <h3>📲 سجّل بياناتك</h3>
+    <form id="regForm">
+      <label>الاسم
+        <input type="text" id="regName" required autocomplete="name">
+      </label>
+      <label>رقم الموبايل
+        <input type="tel" id="regPhone" required inputmode="numeric" pattern="[0-9]{10,15}" autocomplete="tel">
+      </label>
+      <label>الصف
+        <input type="text" id="regGrade" required placeholder="مثال: 2 ثانوي">
+      </label>
+      <button type="submit" id="regSubmitBtn">تسجيل</button>
+    </form>
+    <div id="regMsg"></div>
+  </div>
+</div>
+
+<script>
+  // رابط تطبيق Google Apps Script بعد نشره (Deploy > Web app) — استبدل القيمة دي بالرابط بتاعك
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyZigwbjJMvA0gnwtbzffEBygN8gOcMAEvjRXxvtPnJsmAKiufFfppqO9TjA1Vp6Qt0rw/exec";
+
+  (function trackVisit(){
+    const countEl = document.getElementById('visitorCount');
+    if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.indexOf('PASTE_') === 0) { countEl.textContent = '—'; return; }
+    fetch(APPS_SCRIPT_URL + '?action=visit')
+      .then(r => r.json())
+      .then(d => { countEl.textContent = d.visitors != null ? d.visitors : '—'; })
+      .catch(() => { countEl.textContent = '—'; });
+  })();
+
+  (function setupRegModal(){
+    const overlay = document.getElementById('regModalOverlay');
+    const openBtn = document.getElementById('btn-register');
+    const closeBtn = document.getElementById('regModalClose');
+    const form = document.getElementById('regForm');
+    const msg = document.getElementById('regMsg');
+    const submitBtn = document.getElementById('regSubmitBtn');
+
+    openBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      msg.textContent = '';
+      overlay.classList.add('open');
+    });
+    closeBtn.addEventListener('click', () => overlay.classList.remove('open'));
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('open'); });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('regName').value.trim();
+      const phone = document.getElementById('regPhone').value.trim();
+      const grade = document.getElementById('regGrade').value.trim();
+      if (!name || !phone || !grade) return;
+
+      if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.indexOf('PASTE_') === 0) {
+        msg.textContent = 'التسجيل غير مفعّل حالياً، تواصل عبر واتساب';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      msg.textContent = 'جاري الإرسال...';
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ name: name, phone: phone, grade: grade })
+      })
+      .then(r => r.json())
+      .then(d => {
+        submitBtn.disabled = false;
+        if (d && d.success) {
+          msg.textContent = 'تم التسجيل بنجاح ✅ هنتواصل معاك قريب';
+          form.reset();
+          setTimeout(() => overlay.classList.remove('open'), 1800);
+        } else {
+          msg.textContent = 'حصل خطأ، حاول تاني';
+        }
+      })
+      .catch(() => {
+        submitBtn.disabled = false;
+        msg.textContent = 'حصل خطأ في الاتصال، حاول تاني';
+      });
+    });
+  })();
+</script>
 </body>
 </html>

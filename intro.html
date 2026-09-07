@@ -926,5 +926,12 @@
   }, {threshold:.12});
   document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
 </script>
+<script>
+(function(){
+  var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyZigwbjJMvA0gnwtbzffEBygN8gOcMAEvjRXxvtPnJsmAKiufFfppqO9TjA1Vp6Qt0rw/exec";
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.indexOf('PASTE_') === 0) return;
+  fetch(APPS_SCRIPT_URL + '?action=visit&page=' + encodeURIComponent(location.pathname) + '&ref=' + encodeURIComponent(document.referrer || '')).catch(function(){});
+})();
+</script>
 </body>
 </html>
