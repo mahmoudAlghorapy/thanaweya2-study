@@ -1,0 +1,993 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>امتحان تجريبي: الوحدة الأولى والثانية — موقع ثانوية 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--site-blue:#1769e0;--site-line:#e4e8f0;}
+  .sitehead{position:sticky;top:0;z-index:50;background:rgba(248,251,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--site-line);font-family:"Cairo","Tahoma",Arial,sans-serif;}
+  .sitenav{max-width:1180px;margin:auto;padding:12px 24px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .sitenav .brand{font-weight:900;margin-inline-start:auto;color:#172033;font-size:15px;}
+  .sitenav a{padding:7px 12px;border:1px solid var(--site-line);border-radius:10px;background:#fff;font-size:14px;color:#172033;text-decoration:none;}
+  .sitenav a.active{background:var(--site-blue);color:#fff;border-color:var(--site-blue);}
+  .exam-note{max-width:900px;margin:18px auto 0;padding:0 18px;font-family:"Cairo","Tahoma",Arial,sans-serif;}
+  .exam-note .box{background:#eef6ff;border:1px solid #cfe3ff;border-radius:14px;padding:14px 18px;font-size:14px;color:#44506b;line-height:1.9;}
+  :root{
+    --paper:#eef1f5;
+    --paper-raised:#ffffff;
+    --ink:#16202b;
+    --ink-soft:#46566b;
+    --accent:#1d5c9e;
+    --accent-deep:#0c3a6b;
+    --flag:#a3203a;
+    --line:rgba(13,46,80,0.16);
+    --good:#1f7a62;
+    --gold:#c79a3e;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#10161f;
+      --paper-raised:#182230;
+      --ink:#e8edf3;
+      --ink-soft:#aab8c8;
+      --accent:#5b9bd9;
+      --accent-deep:#8fc1ef;
+      --flag:#e58a9c;
+      --line:rgba(255,255,255,0.16);
+      --good:#4fb99d;
+      --gold:#d8b568;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#10161f;
+    --paper-raised:#182230;
+    --ink:#e8edf3;
+    --ink-soft:#aab8c8;
+    --accent:#5b9bd9;
+    --accent-deep:#8fc1ef;
+    --flag:#e58a9c;
+    --line:rgba(255,255,255,0.16);
+    --good:#4fb99d;
+    --gold:#d8b568;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    direction:rtl;
+    font-family:"Noto Naskh Arabic","Amiri","KacstNaskh","Traditional Arabic",Arial,sans-serif;
+    font-size:16px;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  .headfont{font-family:"Noto Sans Arabic","Segoe UI","Tahoma",Arial,sans-serif;}
+
+  .wrap{max-width:900px;margin:0 auto;padding:28px 18px 60px;}
+
+  /* ---------- letterhead ---------- */
+  .sheet{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    margin-bottom:34px;
+    box-shadow:0 1px 3px rgba(0,0,0,.06);
+  }
+  .letterhead{
+    background:linear-gradient(180deg,var(--accent-deep),var(--accent));
+    color:#fff;
+    padding:22px 28px 18px;
+    position:relative;
+  }
+  .letterhead .eyebrow{
+    font-family:"Noto Sans Arabic","Segoe UI",Arial,sans-serif;
+    font-size:12.5px;
+    letter-spacing:.04em;
+    opacity:.85;
+    margin:0 0 6px;
+  }
+  .letterhead h1{
+    font-family:"Noto Sans Arabic","Segoe UI",Arial,sans-serif;
+    font-size:26px;
+    font-weight:700;
+    margin:0 0 4px;
+    text-wrap:balance;
+  }
+  .letterhead .sub{
+    font-family:"Noto Sans Arabic","Segoe UI",Arial,sans-serif;
+    font-size:14px;
+    opacity:.92;
+    margin:0;
+  }
+  .goldrule{height:4px;background:linear-gradient(90deg,var(--gold),transparent 85%);}
+
+  .meta{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    border-top:1px solid var(--line);
+  }
+  .meta div{
+    padding:10px 20px;
+    font-family:"Noto Sans Arabic","Segoe UI",Arial,sans-serif;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    border-bottom:1px dashed var(--line);
+    display:flex;
+    gap:8px;
+    align-items:baseline;
+  }
+  .meta div:nth-child(odd){border-left:1px dashed var(--line);}
+  .meta .fill{flex:1;border-bottom:1px solid var(--ink-soft);min-height:1.1em;}
+  .meta b{color:var(--ink);font-weight:700;white-space:nowrap;}
+
+  .instructions{
+    padding:14px 28px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    background:color-mix(in srgb, var(--accent) 6%, var(--paper-raised));
+    border-top:1px solid var(--line);
+  }
+
+  .body-pad{padding:22px 28px 30px;}
+
+  /* ---------- sections ---------- */
+  .section{margin-bottom:30px;}
+  .section-head{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:16px;
+  }
+  .section-num{
+    font-family:"Noto Sans Arabic","Segoe UI",Arial,sans-serif;
+    font-weight:700;
+    font-size:13px;
+    color:#fff;
+    background:var(--accent);
+    border-radius:3px;
+    padding:4px 11px;
+    white-space:nowrap;
+  }
+  .section-title{
+    font-family:"Noto Sans Arabic","Segoe UI",Arial,sans-serif;
+    font-weight:700;
+    font-size:17px;
+    color:var(--accent-deep);
+  }
+  .section-marks{
+    margin-right:auto;
+    font-family:"Noto Sans Arabic","Segoe UI",Arial,sans-serif;
+    font-size:12.5px;
+    color:var(--ink-soft);
+  }
+  .section-rule{border:none;border-top:1px solid var(--line);margin:0 0 16px;}
+
+  /* MCQ */
+  .q{margin-bottom:16px;}
+  .q-text{font-weight:600;margin:0 0 8px;}
+  .q-text .qn{color:var(--accent-deep);font-weight:700;}
+  .options{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px 14px;
+    padding-inline-start:26px;
+  }
+  .opt{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    font-size:15px;
+  }
+  .opt .letter{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:22px;height:22px;
+    min-width:22px;
+    border-radius:50%;
+    border:1.4px solid var(--accent);
+    color:var(--accent-deep);
+    font-family:"Noto Sans Arabic",Arial,sans-serif;
+    font-weight:700;
+    font-size:12.5px;
+  }
+
+  /* true/false */
+  .tf-row{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    padding:9px 0;
+    border-bottom:1px dashed var(--line);
+  }
+  .tf-row:last-child{border-bottom:none;}
+  .tf-boxes{
+    display:flex;
+    gap:6px;
+    font-family:"Noto Sans Arabic",Arial,sans-serif;
+    font-size:12px;
+    color:var(--ink-soft);
+    white-space:nowrap;
+    padding-top:2px;
+  }
+  .tf-boxes span{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:20px;height:20px;border:1.3px solid var(--ink-soft);border-radius:3px;
+  }
+  .tf-text{flex:1;}
+  .tf-correction{
+    font-size:12.5px;color:var(--ink-soft);
+    border-bottom:1px solid var(--line);
+    display:inline-block;min-width:60%;margin-top:4px;
+  }
+
+  /* fill blank */
+  .fb{padding:9px 0;border-bottom:1px dashed var(--line);}
+  .fb:last-child{border-bottom:none;}
+
+  /* matching */
+  .match{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0 22px;
+  }
+  .match-col h4{
+    font-family:"Noto Sans Arabic",Arial,sans-serif;
+    font-size:13px;color:var(--accent-deep);
+    margin:0 0 8px;
+    border-bottom:2px solid var(--accent);
+    padding-bottom:4px;
+  }
+  .match-col ol{margin:0;padding:0;list-style:none;counter-reset:mitem;}
+  .match-col li{margin-bottom:9px;font-size:14.5px;padding-inline-start:26px;position:relative;}
+  .match-col.a li{counter-increment:mitem;}
+  .match-col.a li::before{content:counter(mitem) ".";position:absolute;inset-inline-start:0;color:var(--accent-deep);font-weight:700;font-family:"Noto Sans Arabic",Arial,sans-serif;}
+  .match-col.b li{counter-increment:malpha;}
+  .match-col.b{counter-reset:malpha;}
+  .match-col.b li::before{position:absolute;inset-inline-start:0;color:var(--accent-deep);font-weight:700;font-family:"Noto Sans Arabic",Arial,sans-serif;}
+  .match-col.b li:nth-child(1)::before{content:"أ.";}
+  .match-col.b li:nth-child(2)::before{content:"ب.";}
+  .match-col.b li:nth-child(3)::before{content:"ج.";}
+  .match-col.b li:nth-child(4)::before{content:"د.";}
+  .match-col.b li:nth-child(5)::before{content:"هـ.";}
+  .match-col.b li:nth-child(6)::before{content:"و.";}
+
+  /* essay */
+  .essay .q{margin-bottom:20px;}
+  .lines{margin-top:8px;}
+  .lines .ln{border-bottom:1px solid var(--line);height:26px;}
+
+  /* case study */
+  .case{
+    background:color-mix(in srgb, var(--flag) 7%, var(--paper-raised));
+    border:1px solid color-mix(in srgb, var(--flag) 35%, var(--line));
+    border-right:4px solid var(--flag);
+    border-radius:4px;
+    padding:16px 20px;
+  }
+  .case h4{
+    margin:0 0 8px;
+    font-family:"Noto Sans Arabic",Arial,sans-serif;
+    color:var(--flag);
+    font-size:14.5px;
+  }
+  .case p{margin:0 0 10px;}
+  .case ol{margin:0;padding-inline-start:22px;}
+  .case li{margin-bottom:10px;}
+
+  /* answer key */
+  .key-sheet .letterhead{background:linear-gradient(180deg,#7a1630,var(--flag));}
+  .keyblock{margin-bottom:26px;}
+  .keyblock h3{
+    font-family:"Noto Sans Arabic",Arial,sans-serif;
+    color:var(--flag);
+    font-size:16px;
+    border-bottom:2px solid var(--flag);
+    padding-bottom:6px;
+    margin:0 0 12px;
+  }
+  .key-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:8px 10px;
+    font-size:14px;
+  }
+  .key-grid div{
+    background:color-mix(in srgb, var(--flag) 6%, var(--paper-raised));
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:6px 8px;
+    display:flex;gap:6px;
+  }
+  .key-grid b{color:var(--flag);}
+  .key-list{margin:0;padding-inline-start:22px;}
+  .key-list li{margin-bottom:8px;}
+  .key-note{color:var(--ink-soft);font-size:13px;}
+
+  .page-break{break-before:page;page-break-before:always;}
+
+  footer.note{
+    text-align:center;
+    font-family:"Noto Sans Arabic",Arial,sans-serif;
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-top:10px;
+  }
+
+  @media print{
+    body{background:#fff;}
+    .wrap{max-width:none;padding:0;}
+    .sheet{box-shadow:none;border:none;margin-bottom:0;}
+    .page-break{break-before:page;}
+  }
+</style>
+</head>
+<body>
+<header class="sitehead"><nav class="sitenav">
+<div class="brand">📘 البرمجة والذكاء الاصطناعي — الصف الثاني الثانوي</div>
+<a href="index.html">🏠 الرئيسية</a>
+<a href="intro.html">📚 خريطة المنهج</a>
+<a href="شرح_المنهج_من_الفصل_1_إلى_7.html">📖 شرح المنهج</a>
+<a href="شرح_الوحدة_الثانية_الأمن_السيبراني.html">🔐 شرح الأمن السيبراني كاملًا</a>
+<a href="اسئلة_الكتاب_كاملة_الفصول_1_7.html">📝 أسئلة الكتاب</a>
+<a class="active" href="امتحان_الوحدة_الأولى_والثانية.html">🧪 امتحان تجريبي 1+2</a>
+<a href="https://wa.me/201023958338" target="_blank" rel="noopener">📲 التسجيل</a>
+</nav></header>
+<div class="exam-note"><div class="box">🧪 <b>امتحان تجريبي من إعداد المعلم</b> — أسئلة أصلية مبنية على محتوى الوحدتين الأولى والثانية كما ورد في الكتاب المدرسي، وليست منقولة حرفيًا منه. استخدمه للمراجعة النهائية بعد قراءة <a href="شرح_الوحدة_الثانية_الأمن_السيبراني.html" style="color:var(--site-blue);font-weight:700;">شرح الأمن السيبراني</a> و«شرح المنهج» و«أسئلة الكتاب».</div></div>
+<div class="wrap">
+
+  <!-- =================== EXAM 1 =================== -->
+  <div class="sheet">
+    <div class="letterhead">
+      <p class="eyebrow headfont">البرمجة والذكاء الاصطناعي — الصف الثاني الثانوي — الترم الأول</p>
+      <h1 class="headfont">امتحان الوحدة الأولى: تكنولوجيا المعلومات والمجتمع</h1>
+      <p class="sub headfont">يغطي الدروس 1-1 تطور تكنولوجيا المعلومات · 1-2 كيف يعمل الذكاء الاصطناعي · 1-3 الذكاء الاصطناعي في الحياة اليومية والصناعة · 1-4 القضايا الأخلاقية للذكاء الاصطناعي</p>
+    </div>
+    <div class="goldrule"></div>
+    <div class="meta">
+      <div><b>اسم الطالب:</b><span class="fill"></span></div>
+      <div><b>الصف/الفصل:</b><span class="fill"></span></div>
+      <div><b>التاريخ:</b><span class="fill"></span></div>
+      <div><b>زمن الامتحان:</b><span>٦٠ دقيقة</span></div>
+    </div>
+    <div class="instructions headfont">
+      الدرجة الكلية: <b>٤٥</b> درجة — أجب عن جميع الأسئلة في الأماكن المخصصة لها. اقرأ كل سؤال جيدًا قبل الإجابة.
+    </div>
+
+    <div class="body-pad">
+
+      <!-- Section 1: MCQ -->
+      <section class="section">
+        <div class="section-head">
+          <span class="section-num">أولًا</span>
+          <span class="section-title">اختر الإجابة الصحيحة من بين الاختيارات التالية</span>
+          <span class="section-marks">(١٠ درجات)</span>
+        </div>
+        <hr class="section-rule">
+
+        <div class="q"><p class="q-text"><span class="qn">١ ·</span> ما اسم الملاحظة التجريبية القائلة إن عدد الترانزستورات في الدائرة المتكاملة يتضاعف تقريبًا كل عامين؟</p>
+          <div class="options">
+            <span class="opt"><span class="letter">أ</span> قانون مور</span>
+            <span class="opt"><span class="letter">ب</span> قانون نيوتن</span>
+            <span class="opt"><span class="letter">ج</span> مبدأ التراكب الكمي</span>
+            <span class="opt"><span class="letter">د</span> نظرية الحوسبة السحابية</span>
+          </div>
+        </div>
+
+        <div class="q"><p class="q-text"><span class="qn">٢ ·</span> أي المصطلحات التالية يصف نمط عمل يؤدي فيه الشخص مهامه من المنزل أو من موقع آخر بعيد باستخدام الإنترنت؟</p>
+          <div class="options">
+            <span class="opt"><span class="letter">أ</span> التجارة الإلكترونية</span>
+            <span class="opt"><span class="letter">ب</span> العمل عن بُعد</span>
+            <span class="opt"><span class="letter">ج</span> التعلم عبر الإنترنت</span>
+            <span class="opt"><span class="letter">د</span> الدفع غير النقدي</span>
+          </div>
+        </div>
+
+        <div class="q"><p class="q-text"><span class="qn">٣ ·</span> ما التقنية التي تعالج فيها السيارة بيانات كاميراتها ومستشعراتها محليًا لاتخاذ قرارات فورية بدلًا من إرسالها إلى السحابة؟</p>
+          <div class="options">
+            <span class="opt"><span class="letter">أ</span> الواقع المعزز</span>
+            <span class="opt"><span class="letter">ب</span> القيادة الذاتية بالحوسبة الطرفية</span>
+            <span class="opt"><span class="letter">ج</span> الواقع الافتراضي</span>
+            <span class="opt"><span class="letter">د</span> الحوسبة الكمومية</span>
+          </div>
+        </div>
+
+        <div class="q"><p class="q-text"><span class="qn">٤ ·</span> أي العبارات التالية تصف "التعلّم الآلي" بدقة؟</p>
+          <div class="options" style="flex-direction:column;align-items:flex-start;">
+            <span class="opt"><span class="letter">أ</span> فرع من الذكاء الاصطناعي تتعلم فيه النماذج أنماطًا من البيانات لإجراء تنبؤات أو تصنيفات أو دعم قرارات، بدلًا من برمجة كل قاعدة صراحةً</span>
+            <span class="opt"><span class="letter">ب</span> تقنية تستخدم شبكات عصبية متعددة الطبقات فقط لا غير</span>
+            <span class="opt"><span class="letter">ج</span> نظام يُنشئ نصوصًا وصورًا وأصواتًا جديدة فقط</span>
+            <span class="opt"><span class="letter">د</span> نموذج حاسوبي يحاكي الدماغ البشري بالكامل</span>
+          </div>
+        </div>
+
+        <div class="q"><p class="q-text"><span class="qn">٥ ·</span> ما أسلوب التعلم الآلي الذي يعتمد على شبكات عصبية متعددة الطبقات لتعلم تمثيلات وأنماط معقدة من البيانات؟</p>
+          <div class="options">
+            <span class="opt"><span class="letter">أ</span> الذكاء الاصطناعي التوليدي</span>
+            <span class="opt"><span class="letter">ب</span> التعلم العميق</span>
+            <span class="opt"><span class="letter">ج</span> الحوسبة الطرفية</span>
+            <span class="opt"><span class="letter">د</span> نظام التوصية</span>
+          </div>
+        </div>
+
+        <div class="q"><p class="q-text"><span class="qn">٦ ·</span> ما المخرج غير الموثوق الذي قد تنتجه أنظمة الذكاء الاصطناعي التوليدي على هيئة معلومات غير صحيحة أو غير مدعومة لكنها تبدو مقنعة؟</p>
+          <div class="options">
+            <span class="opt"><span class="letter">أ</span> التحيز الخوارزمي</span>
+            <span class="opt"><span class="letter">ب</span> الهلوسة</span>
+            <span class="opt"><span class="letter">ج</span> مشكلة الصندوق الأسود</span>
+            <span class="opt"><span class="letter">د</span> المساءلة</span>
+          </div>
+        </div>
+
+        <div class="q"><p class="q-text"><span class="qn">٧ ·</span> في أي الصناعات التالية يُستخدم الذكاء الاصطناعي بصورة رئيسة للكشف عن الأمراض من صور الأشعة السينية والتصوير المقطعي؟</p>
+          <div class="options">
+            <span class="opt"><span class="letter">أ</span> التصنيع</span>
+            <span class="opt"><span class="letter">ب</span> الزراعة</span>
+            <span class="opt"><span class="letter">ج</span> الرعاية الصحية</span>
+            <span class="opt"><span class="letter">د</span> الخدمات اللوجستية</span>
+          </div>
+        </div>
+
+        <div class="q"><p class="q-text"><span class="qn">٨ ·</span> أي مما يلي لا يُعد من الأمور التي يبرع فيها الذكاء الاصطناعي؟</p>
+          <div class="options" style="flex-direction:column;align-items:flex-start;">
+            <span class="opt"><span class="letter">أ</span> إيجاد وتصنيف الأنماط في البيانات المعقدة مثل الصور والنصوص</span>
+            <span class="opt"><span class="letter">ب</span> التعرف على الصور والأصوات وتوليد بعض أنواع المحتوى</span>
+            <span class="opt"><span class="letter">ج</span> تحمّل المسؤولية القانونية الكاملة عن قراراته دون إشراف بشري</span>
+            <span class="opt"><span class="letter">د</span> الاستدلال الاحتمالي والتنبؤ استنادًا إلى البيانات</span>
+          </div>
+        </div>
+
+        <div class="q"><p class="q-text"><span class="qn">٩ ·</span> ما النمط أو الانحراف في مخرجات نظام ذكاء اصطناعي الذي قد ينشأ من البيانات أو تصميم النظام ويؤدي إلى نتائج غير عادلة أو ضارة لفئة بعينها؟</p>
+          <div class="options">
+            <span class="opt"><span class="letter">أ</span> التحيز الخوارزمي</span>
+            <span class="opt"><span class="letter">ب</span> الشفافية</span>
+            <span class="opt"><span class="letter">ج</span> الاستئصال</span>
+            <span class="opt"><span class="letter">د</span> الدفاع في العمق</span>
+          </div>
+        </div>
+
+        <div class="q"><p class="q-text"><span class="qn">١٠ ·</span> أي مبادئ أخلاقيات الذكاء الاصطناعي الأربعة يُعنى بإتاحة معلومات واضحة ومناسبة عن النظام واستخدامه وعملية اتخاذ القرار؟</p>
+          <div class="options">
+            <span class="opt"><span class="letter">أ</span> العدالة</span>
+            <span class="opt"><span class="letter">ب</span> الشفافية</span>
+            <span class="opt"><span class="letter">ج</span> حماية الخصوصية</span>
+            <span class="opt"><span class="letter">د</span> المساءلة</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: True/False -->
+      <section class="section">
+        <div class="section-head">
+          <span class="section-num">ثانيًا</span>
+          <span class="section-title">ضع علامة (✓) أو (✗) أمام كل عبارة، وصحّح الخطأ منها</span>
+          <span class="section-marks">(٨ درجات)</span>
+        </div>
+        <hr class="section-rule">
+
+        <div class="tf-row"><div class="tf-boxes"><span>✓</span><span>✗</span></div>
+          <div class="tf-text">١ · التعلم العميق والتعلم الآلي تقنيتان منفصلتان تمامًا ولا توجد علاقة بينهما.<br><span class="tf-correction"></span></div>
+        </div>
+        <div class="tf-row"><div class="tf-boxes"><span>✓</span><span>✗</span></div>
+          <div class="tf-text">٢ · انتشرت الحوسبة السحابية بصورة واسعة بدءًا من العقد الثاني من الألفية فصاعدًا.<br><span class="tf-correction"></span></div>
+        </div>
+        <div class="tf-row"><div class="tf-boxes"><span>✓</span><span>✗</span></div>
+          <div class="tf-text">٣ · تعني التجارة الإلكترونية بيع السلع والخدمات وشراءها عبر الإنترنت.<br><span class="tf-correction"></span></div>
+        </div>
+        <div class="tf-row"><div class="tf-boxes"><span>✓</span><span>✗</span></div>
+          <div class="tf-text">٤ · يحمل البت الكلاسيكي حالتين (٠ و١) معًا في الوقت نفسه.<br><span class="tf-correction"></span></div>
+        </div>
+        <div class="tf-row"><div class="tf-boxes"><span>✓</span><span>✗</span></div>
+          <div class="tf-text">٥ · تعتمد غالبية أنظمة الذكاء الاصطناعي التوليدي الحديثة على نماذج التعلم العميق.<br><span class="tf-correction"></span></div>
+        </div>
+        <div class="tf-row"><div class="tf-boxes"><span>✓</span><span>✗</span></div>
+          <div class="tf-text">٦ · وظيفة الذكاء الاصطناعي القابل للتفسير (XAI) هي تحديد الجهة التي تُحاسَب على قرار النظام.<br><span class="tf-correction"></span></div>
+        </div>
+        <div class="tf-row"><div class="tf-boxes"><span>✓</span><span>✗</span></div>
+          <div class="tf-text">٧ · يمكن أن تنشأ قضايا خصوصية بسبب مراقبة الأفراد عبر تقنية التعرف على الوجه في الأماكن العامة.<br><span class="tf-correction"></span></div>
+        </div>
+        <div class="tf-row"><div class="tf-boxes"><span>✓</span><span>✗</span></div>
+          <div class="tf-text">٨ · حتى لو كانت بيانات تدريب نظام الذكاء الاصطناعي متحيزة أو غير كافية، فإن ذلك لا يؤثر على عدالة نتائجه.<br><span class="tf-correction"></span></div>
+        </div>
+      </section>
+
+      <!-- Section 3: fill blank -->
+      <section class="section">
+        <div class="section-head">
+          <span class="section-num">ثالثًا</span>
+          <span class="section-title">أكمل الفراغات التالية بالمصطلح العلمي المناسب</span>
+          <span class="section-marks">(٦ درجات)</span>
+        </div>
+        <hr class="section-rule">
+        <div class="fb">١ · تُسمى الملاحظة التجريبية القائلة إن عدد الترانزستورات في الدائرة المتكاملة يتضاعف تقريبًا كل عامين ..................................</div>
+        <div class="fb">٢ · يُسمى النمط التعليمي الذي تُقدَّم فيه الدروس والمواد التعليمية عبر الإنترنت ..................................</div>
+        <div class="fb">٣ · يُعرَّف .................................. بأنه فرع من الذكاء الاصطناعي تتعلم فيه النماذج أنماطًا من البيانات لإجراء تنبؤات أو تصنيفات أو دعم قرارات.</div>
+        <div class="fb">٤ · تُسمى الأنظمة التي تُنشئ محتوى جديدًا مثل النصوص والصور والصوت اعتمادًا على أنماط تعلمتها من بيانات التدريب ..................................</div>
+        <div class="fb">٥ · يحدث .................................. عندما ينشأ نمط أو انحراف في مخرجات نظام الذكاء الاصطناعي يؤدي إلى نتائج غير عادلة أو ضارة لفئة بعينها.</div>
+        <div class="fb">٦ · يصف .................................. نهجًا حوسبيًا يستخدم خصائص ميكانيكا الكم مثل التراكب الكمي لمعالجة المعلومات، ويوفر تفوقًا في فئات محددة فقط من المسائل.</div>
+      </section>
+
+      <!-- Section 4: matching -->
+      <section class="section">
+        <div class="section-head">
+          <span class="section-num">رابعًا</span>
+          <span class="section-title">وصّل من العمود (أ) ما يناسبه من العمود (ب)</span>
+          <span class="section-marks">(٦ درجات)</span>
+        </div>
+        <hr class="section-rule">
+        <div class="match">
+          <div class="match-col a">
+            <h4 class="headfont">العمود (أ)</h4>
+            <ol>
+              <li>العمل عن بُعد</li>
+              <li>الشبكة العصبية الاصطناعية (ANN)</li>
+              <li>مشكلة الصندوق الأسود</li>
+              <li>المساءلة</li>
+              <li>الحوسبة الطرفية</li>
+              <li>الواقع المعزز (AR)</li>
+            </ol>
+          </div>
+          <div class="match-col b">
+            <h4 class="headfont">العمود (ب)</h4>
+            <ol>
+              <li>نموذج حاسوبي مستوحى من فكرة ترابط العصبونات، يتكوّن من وحدات مترابطة تتعلم أنماطًا من البيانات</li>
+              <li>نمط عمل يؤدي فيه الشخص مهامه من المنزل أو من موقع آخر بعيد باستخدام الإنترنت</li>
+              <li>تقنية تضيف عناصر أو معلومات رقمية إلى مشهد من العالم الحقيقي</li>
+              <li>معالجة البيانات على الجهاز نفسه فورًا، بدلًا من إرسالها إلى السحابة</li>
+              <li>فقدان الوضوح حول كيفية وصول نظام الذكاء الاصطناعي إلى حكم معين</li>
+              <li>تحديد الجهات المسؤولة عن النظام وقراراته وآثاره، وإمكان محاسبتها وفق أدوارها</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: essay -->
+      <section class="section essay">
+        <div class="section-head">
+          <span class="section-num">خامسًا</span>
+          <span class="section-title">أجب عن الأسئلة التالية</span>
+          <span class="section-marks">(١٠ درجات)</span>
+        </div>
+        <hr class="section-rule">
+
+        <div class="q"><p class="q-text"><span class="qn">١ ·</span> اشرح المقصود بـ"قانون مور"، ثم اذكر تحديًا هندسيًا واحدًا يواجهه استمرار هذا الاتجاه مع استمرار تصغير مكوّنات الدوائر.</p>
+          <div class="lines"><div class="ln"></div><div class="ln"></div></div>
+        </div>
+        <div class="q"><p class="q-text"><span class="qn">٢ ·</span> وضّح العلاقة بين الذكاء الاصطناعي والتعلم الآلي والتعلم العميق والذكاء الاصطناعي التوليدي، مبينًا أن هذه الفئات متداخلة وليست تسلسلًا صارمًا في كل حالة.</p>
+          <div class="lines"><div class="ln"></div><div class="ln"></div></div>
+        </div>
+        <div class="q"><p class="q-text"><span class="qn">٣ ·</span> ما المقصود بـ"الهلوسة" في مخرجات الذكاء الاصطناعي التوليدي؟ وما الإجراء المناسب الذي ينبغي اتخاذه قبل الاعتماد على معلومة أنتجها نظام ذكاء اصطناعي توليدي؟</p>
+          <div class="lines"><div class="ln"></div><div class="ln"></div></div>
+        </div>
+        <div class="q"><p class="q-text"><span class="qn">٤ ·</span> اذكر سببين من أسباب التحيز الخوارزمي في أنظمة الذكاء الاصطناعي، مع مثال واحد لكل سبب.</p>
+          <div class="lines"><div class="ln"></div><div class="ln"></div></div>
+        </div>
+        <div class="q"><p class="q-text"><span class="qn">٥ ·</span> اذكر المبادئ الأربعة الأساسية لأخلاقيات الذكاء الاصطناعي، واشرح مبدأً واحدًا منها بالتفصيل مع مثال تطبيقي.</p>
+          <div class="lines"><div class="ln"></div><div class="ln"></div></div>
+        </div>
+      </section>
+
+      <!-- Section 6: case study -->
+      <section class="section">
+        <div class="section-head">
+          <span class="section-num">سادسًا</span>
+          <span class="section-title">سؤال الموقف التطبيقي — فكّر كمهندس: ابحث ثم قرر</span>
+          <span class="section-marks">(٥ درجات)</span>
+        </div>
+        <hr class="section-rule">
+        <div class="case">
+          <h4 class="headfont">الموقف</h4>
+          <p>تدرس إحدى المدارس استخدام نظام ذكاء اصطناعي لفرز طلبات الالتحاق بناءً على بيانات الطلاب السابقين وأدائهم.</p>
+          <ol>
+            <li>حدد فئة تقنية الذكاء الاصطناعي الأنسب لوصف هذا النظام (الذكاء الاصطناعي العام / التعلم الآلي / التعلم العميق)، وفسّر اختيارك. <b>(٢ درجة)</b>
+              <div class="lines"><div class="ln"></div></div>
+            </li>
+            <li>اذكر خطرًا أخلاقيًا واحدًا محتملًا لاستخدام هذا النظام، ثم اقترح إجراءً واحدًا يقلل منه. <b>(٢ درجة)</b>
+              <div class="lines"><div class="ln"></div></div>
+            </li>
+            <li>من يجب أن يتحمل المسؤولية إذا اتخذ النظام قرارًا غير عادل: المطوّر أم المدرسة المستخدِمة؟ بَرِّر إجابتك في جملتين. <b>(١ درجة)</b>
+              <div class="lines"><div class="ln"></div></div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+    </div>
+  </div>
+  <footer class="note">انتهت أسئلة امتحان الوحدة الأولى — بالتوفيق</footer>
+
+  <!-- =================== EXAM 2 =================== -->
+  <div class="sheet page-break">
+    <div class="letterhead">
+      <p class="eyebrow headfont">البرمجة والذكاء الاصطناعي — الصف الثاني الثانوي — الترم الأول</p>
+      <h1 class="headfont">امتحان الوحدة الثانية: الأمن السيبراني</h1>
+      <p class="sub headfont">يغطي الدروس 2-1 تقنيات التشفير والمصادقة · 2-2 تصميم أمن الشبكات · 2-3 الاستجابة للحوادث وإدارة المخاطر</p>
+    </div>
+    <div class="goldrule"></div>
+    <div class="meta">
+      <div><b>اسم الطالب:</b><span class="fill"></span></div>
+      <div><b>الصف/الفصل:</b><span class="fill"></span></div>
+      <div><b>التاريخ:</b><span class="fill"></span></div>
+      <div><b>زمن الامتحان:</b><span>٦٠ دقيقة</span></div>
+    </div>
+    <div class="instructions headfont">
+      الدرجة الكلية: <b>٤٥</b> درجة — أجب عن جميع الأسئلة في الأماكن المخصصة لها. اقرأ كل سؤال جيدًا قبل الإجابة.
+    </div>
+
+    <div class="body-pad">
+
+      <!-- Section 1: MCQ -->
+      <section class="section">
+        <div class="section-head">
+          <span class="section-num">أولًا</span>
+          <span class="section-title">اختر الإجابة الصحيحة من بين الاختيارات التالية</span>
+          <span class="section-marks">(١٠ درجات)</span>
+        </div>
+        <hr class="section-rule">
+
+        <div class="q"><p class="q-text"><span class="qn">١ ·</span> ما البروتوكول الذي ينقل بيانات HTTP عبر اتصال TLS مؤمَّن ليوفر سرية البيانات وسلامتها أثناء النقل؟</p>
+          <div class="options">
+            <span class="opt"><span class="letter">أ</span> FTP</span>
+            <span class="opt"><span class="letter">ب</span> HTTPS</span>
+            <span class="opt"><span class="letter">ج</span> SMTP</span>
+            <span class="opt"><span class="letter">د</span> DMZ</span>
+          </div>
+        </div>
+
+        <div class="q"><p class="q-text"><span class="qn">٢ ·</span> أي أنواع التشفير يُستخدم لحماية بيانات الجلسة بسرعة وكفاءة بعد اكتمال مصافحة TLS؟</p>
+          <div class="options">
+            <span class="opt"><span class="letter">أ</span> التشفير بالمفتاح العام</span>
+            <span class="opt"><span class="letter">ب</span> التشفير المتماثل</span>
+            <span class="opt"><span class="letter">ج</span> التوقيع الرقمي</span>
+            <span class="opt"><span class="letter">د</span> الشهادة الرقمية</span>
+          </div>
+        </div>
+
+        <div class="q"><p class="q-text"><span class="qn">٣ ·</span> ما العنصر الذي يرسله خادم الويب أثناء مصافحة TLS ليتحقق المتصفح من صلاحيته وسلسلة ثقته ومطابقته لاسم الموقع؟</p>
+          <div class="options">
+            <span class="opt"><span class="letter">أ</span> الشهادة الرقمية</span>
+            <span class="opt"><span class="letter">ب</span> كلمة المرور</span>
+            <span class="opt"><span class="letter">ج</span> رمز QR</span>
+            <span class="opt"><span class="letter">د</span> مفتاح الجلسة وحده</span>
+          </div>
+        </div>
+
+        <div class="q"><p class="q-text"><span class="qn">٤ ·</span> أي العبارات التالية تصف "المصادقة الثنائية (2FA)" بدقة؟</p>
+          <div class="options" style="flex-direction:column;align-items:flex-start;">
+            <span class="opt"><span class="letter">أ</span> استخدام عاملين أو أكثر من فئات مختلفة لإثبات الهوية</span>
+            <span class="opt"><span class="letter">ب</span> استخدام عاملين مستقلين من فئتين مختلفتين لإثبات الهوية</span>
+            <span class="opt"><span class="letter">ج</span> تعيين كلمتي مرور مختلفتين لنفس الحساب</span>
+            <span class="opt"><span class="letter">د</span> تشفير كلمة المرور فقط أثناء إرسالها</span>
+          </div>
+        </div>
+
+        <div class="q"><p class="q-text"><span class="qn">٥ ·</span> ما الهدف الأساسي من "جدار الحماية" في تصميم أمن الشبكات؟</p>
+          <div class="options" style="flex-direction:column;align-items:flex-start;">
+            <span class="opt"><span class="letter">أ</span> إنشاء نفق مشفر لنقل البيانات عبر شبكة عامة</span>
+            <span class="opt"><span class="letter">ب</span> مراقبة حركة مرور الشبكة والسماح بها أو منعها وفق قواعد أمنية</span>
+            <span class="opt"><span class="letter">ج</span> فصل الخوادم المعرَّضة للشبكة الخارجية عن الشبكة الداخلية</span>
+            <span class="opt"><span class="letter">د</span> تحليل الحادث الأمني بعد وقوعه فقط</span>
+          </div>
+        </div>
+
+        <div class="q"><p class="q-text"><span class="qn">٦ ·</span> ما المنطقة الشبكية التي تُوضع فيها الخوادم المعرَّضة للشبكة الخارجية (كخادم الويب والبريد الإلكتروني) منفصلةً عن الشبكة الداخلية؟</p>
+          <div class="options">
+            <span class="opt"><span class="letter">أ</span> الشبكة الافتراضية الخاصة (VPN)</span>
+            <span class="opt"><span class="letter">ب</span> المنطقة المعزولة (DMZ)</span>
+            <span class="opt"><span class="letter">ج</span> جدار الحماية</span>
+            <span class="opt"><span class="letter">د</span> نهج انعدام الثقة</span>
+          </div>
+        </div>
+
+        <div class="q"><p class="q-text"><span class="qn">٧ ·</span> ما المبدأ الأمني الذي لا يمنح الثقة تلقائيًا لأي مستخدم أو جهاز بحسب موقعه داخل الشبكة، بل يتحقق من كل طلب وصول استنادًا إلى الهوية والصلاحيات والسياق؟</p>
+          <div class="options">
+            <span class="opt"><span class="letter">أ</span> الدفاع في العمق</span>
+            <span class="opt"><span class="letter">ب</span> المحيط الأمني التقليدي</span>
+            <span class="opt"><span class="letter">ج</span> نهج انعدام الثقة (Zero Trust)</span>
+            <span class="opt"><span class="letter">د</span> التشفير المتماثل</span>
+          </div>
+        </div>
+
+        <div class="q"><p class="q-text"><span class="qn">٨ ·</span> ما مرحلة الاستجابة للحوادث التي يُراد بها الحد من انتشار الضرر قبل إزالة سببه؟</p>
+          <div class="options">
+            <span class="opt"><span class="letter">أ</span> التحضير</span>
+            <span class="opt"><span class="letter">ب</span> الاكتشاف</span>
+            <span class="opt"><span class="letter">ج</span> الاحتواء</span>
+            <span class="opt"><span class="letter">د</span> الاستئصال</span>
+          </div>
+        </div>
+
+        <div class="q"><p class="q-text"><span class="qn">٩ ·</span> في مصفوفة تقييم المخاطر المبسطة، تُحسب درجة الخطر وفق المعادلة:</p>
+          <div class="options" style="flex-direction:column;align-items:flex-start;">
+            <span class="opt"><span class="letter">أ</span> درجة الخطر = درجة التأثير + درجة الاحتمالية</span>
+            <span class="opt"><span class="letter">ب</span> درجة الخطر = درجة التأثير × درجة الاحتمالية</span>
+            <span class="opt"><span class="letter">ج</span> درجة الخطر = درجة الاحتمالية ÷ درجة التأثير</span>
+            <span class="opt"><span class="letter">د</span> درجة الخطر = درجة التأثير فقط</span>
+          </div>
+        </div>
+
+        <div class="q"><p class="q-text"><span class="qn">١٠ ·</span> أي المراحل التالية هي آخر مراحل نموذج الاستجابة للحوادث الست، وتُعنى بتحليل الحادث وتحسين الضوابط لتقليل احتمال تكراره؟</p>
+          <div class="options">
+            <span class="opt"><span class="letter">أ</span> الاستعادة</span>
+            <span class="opt"><span class="letter">ب</span> الاستئصال</span>
+            <span class="opt"><span class="letter">ج</span> الدروس المستفادة والتحسين</span>
+            <span class="opt"><span class="letter">د</span> الاكتشاف</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: True/False -->
+      <section class="section">
+        <div class="section-head">
+          <span class="section-num">ثانيًا</span>
+          <span class="section-title">ضع علامة (✓) أو (✗) أمام كل عبارة، وصحّح الخطأ منها</span>
+          <span class="section-marks">(٨ درجات)</span>
+        </div>
+        <hr class="section-rule">
+
+        <div class="tf-row"><div class="tf-boxes"><span>✓</span><span>✗</span></div>
+          <div class="tf-text">١ · يأتي أمان الاتصال عبر الإنترنت من تقنية واحدة فقط هي التشفير.<br><span class="tf-correction"></span></div>
+        </div>
+        <div class="tf-row"><div class="tf-boxes"><span>✓</span><span>✗</span></div>
+          <div class="tf-text">٢ · تستخدم المصادقة الثنائية (2FA) عاملين مستقلين من فئتين مختلفتين لإثبات الهوية.<br><span class="tf-correction"></span></div>
+        </div>
+        <div class="tf-row"><div class="tf-boxes"><span>✓</span><span>✗</span></div>
+          <div class="tf-text">٣ · يمكن أن يقلل استخدام الشبكة الافتراضية الخاصة (VPN) من مخاطر التنصت عند الاتصال بشبكة Wi-Fi عامة.<br><span class="tf-correction"></span></div>
+        </div>
+        <div class="tf-row"><div class="tf-boxes"><span>✓</span><span>✗</span></div>
+          <div class="tf-text">٤ · تُعرِّض المنطقة المعزولة (DMZ) جميع خوادم الشبكة الداخلية مباشرةً للشبكة الخارجية.<br><span class="tf-correction"></span></div>
+        </div>
+        <div class="tf-row"><div class="tf-boxes"><span>✓</span><span>✗</span></div>
+          <div class="tf-text">٥ · يجب تنفيذ مراحل الاستجابة للحوادث الست دائمًا بترتيب صارم دون أي تداخل أو تكرار بين الأنشطة.<br><span class="tf-correction"></span></div>
+        </div>
+        <div class="tf-row"><div class="tf-boxes"><span>✓</span><span>✗</span></div>
+          <div class="tf-text">٦ · تُعالَج المخاطر ذات التأثير العالي والاحتمالية العالية أولًا وفق مصفوفة تقييم المخاطر المبسطة.<br><span class="tf-correction"></span></div>
+        </div>
+        <div class="tf-row"><div class="tf-boxes"><span>✓</span><span>✗</span></div>
+          <div class="tf-text">٧ · يوفر التوقيع الرقمي دليلًا يدعم عدم التنصل، في حين لا يضمن جدار الحماية وحده الحماية الكاملة للشبكة.<br><span class="tf-correction"></span></div>
+        </div>
+        <div class="tf-row"><div class="tf-boxes"><span>✓</span><span>✗</span></div>
+          <div class="tf-text">٨ · يفترض نهج انعدام الثقة (Zero Trust) أن كل من هو داخل شبكة المؤسسة آمن تلقائيًا.<br><span class="tf-correction"></span></div>
+        </div>
+      </section>
+
+      <!-- Section 3: fill blank -->
+      <section class="section">
+        <div class="section-head">
+          <span class="section-num">ثالثًا</span>
+          <span class="section-title">أكمل الفراغات التالية بالمصطلح العلمي المناسب</span>
+          <span class="section-marks">(٦ درجات)</span>
+        </div>
+        <hr class="section-rule">
+        <div class="fb">١ · تُسمى خطوات إنشاء الاتصال الآمن عبر TLS قبل بدء تبادل بيانات الجلسة ..................................</div>
+        <div class="fb">٢ · بعد اكتمال المصادقة والاتفاق على مفاتيح الجلسة، يُستخدم .................................. لحماية بيانات الاتصال بكفاءة وسرعة.</div>
+        <div class="fb">٣ · يتيح .................................. للمستخدمين الاتصال بأمان بشبكة المؤسسة من المنزل أو أثناء التنقل عبر نفق مشفر فوق شبكة عامة.</div>
+        <div class="fb">٤ · يُطلق على استخدام طبقات متعددة من الضوابط الأمنية، بحيث تساعد طبقة أخرى على الحد من الخطر إذا فشلت إحدى الطبقات، مصطلح ..................................</div>
+        <div class="fb">٥ · يُسمى الحدث الذي يؤثر في سرية المعلومات أو سلامتها أو توافرها، أو يهددها بجدية، أو يخالف سياسة أمنية ..................................</div>
+        <div class="fb">٦ · في نموذج الاستجابة للحوادث من ست مراحل، تأتي مرحلة .................................. مباشرة بعد الاحتواء، وتُعنى بإزالة التهديد ومسبباته.</div>
+      </section>
+
+      <!-- Section 4: matching -->
+      <section class="section">
+        <div class="section-head">
+          <span class="section-num">رابعًا</span>
+          <span class="section-title">وصّل من العمود (أ) ما يناسبه من العمود (ب)</span>
+          <span class="section-marks">(٦ درجات)</span>
+        </div>
+        <hr class="section-rule">
+        <div class="match">
+          <div class="match-col a">
+            <h4 class="headfont">العمود (أ)</h4>
+            <ol>
+              <li>الشهادة الرقمية</li>
+              <li>المصادقة متعددة العوامل (MFA)</li>
+              <li>جدار الحماية</li>
+              <li>نهج انعدام الثقة</li>
+              <li>الاحتواء</li>
+              <li>الاحتمالية (في تقييم المخاطر)</li>
+            </ol>
+          </div>
+          <div class="match-col b">
+            <h4 class="headfont">العمود (ب)</h4>
+            <ol>
+              <li>مدى احتمال وقوع الحدث</li>
+              <li>نظام أو برنامج يراقب حركة مرور الشبكة ويسمح بها أو يمنعها وفق قواعد أمنية</li>
+              <li>تساعد المتصفح على التحقق من هوية الخادم واسم النطاق الذي يتصل به</li>
+              <li>استخدام عاملين أو أكثر من فئات مختلفة مثل المعرفة والحيازة والسمات الحيوية لإثبات الهوية</li>
+              <li>الحد من نطاق تأثير الحادث الأمني بحيث لا ينتشر الضرر أكثر</li>
+              <li>التحقق من كل عملية وصول استنادًا إلى الهوية والصلاحيات والسياق، دون منح ثقة تلقائية لأي طرف</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: essay -->
+      <section class="section essay">
+        <div class="section-head">
+          <span class="section-num">خامسًا</span>
+          <span class="section-title">أجب عن الأسئلة التالية</span>
+          <span class="section-marks">(١٠ درجات)</span>
+        </div>
+        <hr class="section-rule">
+
+        <div class="q"><p class="q-text"><span class="qn">١ ·</span> اشرح باختصار كيف تعمل الشهادة الرقمية وآليات المفتاح العام معًا لبدء اتصال HTTPS آمن، ثم بيّن نوع التشفير المستخدم لحماية بيانات الجلسة بعد ذلك.</p>
+          <div class="lines"><div class="ln"></div><div class="ln"></div></div>
+        </div>
+        <div class="q"><p class="q-text"><span class="qn">٢ ·</span> وضّح الفرق بين المصادقة الثنائية (2FA) والمصادقة متعددة العوامل (MFA)، مع ذكر مثال واحد لكل منهما.</p>
+          <div class="lines"><div class="ln"></div><div class="ln"></div></div>
+        </div>
+        <div class="q"><p class="q-text"><span class="qn">٣ ·</span> اشرح لماذا لا يكفي جدار الحماية وحده لحماية الشبكة، وكيف يسهم مفهوم "الدفاع في العمق" في تعزيز الأمان.</p>
+          <div class="lines"><div class="ln"></div><div class="ln"></div></div>
+        </div>
+        <div class="q"><p class="q-text"><span class="qn">٤ ·</span> قارن بين نموذج الأمان التقليدي القائم على "المحيط الأمني" ونهج "انعدام الثقة"، مبينًا سبب تراجع فعالية النموذج التقليدي مع انتشار الخدمات السحابية والعمل عن بُعد.</p>
+          <div class="lines"><div class="ln"></div><div class="ln"></div></div>
+        </div>
+        <div class="q"><p class="q-text"><span class="qn">٥ ·</span> اذكر مراحل نموذج الاستجابة للحوادث الست بترتيبها، واشرح الغرض من مرحلتين منها.</p>
+          <div class="lines"><div class="ln"></div><div class="ln"></div></div>
+        </div>
+      </section>
+
+      <!-- Section 6: case study -->
+      <section class="section">
+        <div class="section-head">
+          <span class="section-num">سادسًا</span>
+          <span class="section-title">سؤال الموقف التطبيقي — فكّر كمهندس: ابحث ثم قرر</span>
+          <span class="section-marks">(٥ درجات)</span>
+        </div>
+        <hr class="section-rule">
+        <div class="case">
+          <h4 class="headfont">الموقف</h4>
+          <p>اكتشف أحد المتاجر الإلكترونية الصغيرة أن بيانات بعض العملاء (ومن ضمنها أرقام بطاقات ائتمان) قد تسرَّبت إلى الخارج عبر وصول غير مصرَّح به.</p>
+          <ol>
+            <li>ما نوع الحادث الأمني الذي وقع هنا؟ ولماذا يُصنَّف حادثًا جديًا؟ <b>(٢ درجة)</b>
+              <div class="lines"><div class="ln"></div></div>
+            </li>
+            <li>رتّب الإجراءات التالية وفق تسلسل مراحل الاستجابة للحوادث الست: <i>(استعادة الخدمة من نسخة احتياطية سليمة — تحليل الحادث لتحسين الضوابط مستقبلًا — اكتشاف وتأكيد وقوع التسرب — عزل الخادم المتأثر لوقف انتشار المشكلة — إزالة الثغرة التي استُغلت)</i>. <b>(٢ درجة)</b>
+              <div class="lines"><div class="ln"></div></div>
+            </li>
+            <li>اقترح تقنية أمان واحدة (من تقنيات التشفير والمصادقة أو تصميم أمن الشبكات) كان يمكن أن تقلل من احتمال وقوع هذا الحادث، مع التبرير. <b>(١ درجة)</b>
+              <div class="lines"><div class="ln"></div></div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+    </div>
+  </div>
+  <footer class="note">انتهت أسئلة امتحان الوحدة الثانية — بالتوفيق</footer>
+
+  <!-- =================== ANSWER KEY 1 =================== -->
+  <div class="sheet key-sheet page-break">
+    <div class="letterhead">
+      <p class="eyebrow headfont">نموذج الإجابة</p>
+      <h1 class="headfont">إجابات امتحان الوحدة الأولى: تكنولوجيا المعلومات والمجتمع</h1>
+    </div>
+    <div class="goldrule"></div>
+    <div class="body-pad">
+
+      <div class="keyblock">
+        <h3 class="headfont">أولًا — الاختيار من متعدد</h3>
+        <div class="key-grid">
+          <div><b>١</b> أ</div><div><b>٢</b> ب</div><div><b>٣</b> ب</div><div><b>٤</b> أ</div><div><b>٥</b> ب</div>
+          <div><b>٦</b> ب</div><div><b>٧</b> ج</div><div><b>٨</b> ج</div><div><b>٩</b> أ</div><div><b>١٠</b> ب</div>
+        </div>
+      </div>
+
+      <div class="keyblock">
+        <h3 class="headfont">ثانيًا — صح وخطأ (مع تصحيح الخطأ)</h3>
+        <ol class="key-list">
+          <li><b>✗ خطأ.</b> التعلم العميق أسلوب متقدم ضمن التعلم الآلي يعتمد على شبكات عصبية متعددة الطبقات، وليس تقنية منفصلة عنه تمامًا.</li>
+          <li><b>✓ صح.</b></li>
+          <li><b>✓ صح.</b></li>
+          <li><b>✗ خطأ.</b> هذا وصف "الكيوبت" وليس البت الكلاسيكي؛ فالبت الكلاسيكي يحمل حالة واحدة محددة في كل وقت (٠ أو ١).</li>
+          <li><b>✓ صح.</b></li>
+          <li><b>✗ خطأ.</b> وظيفة XAI هي مساعدة البشر على فهم العوامل التي أسهمت في مخرج النظام؛ أما تحديد الجهة المسؤولة فهذا دور مبدأ "المساءلة".</li>
+          <li><b>✓ صح.</b></li>
+          <li><b>✗ خطأ.</b> بيانات التدريب المتحيزة أو غير الكافية تجعل النظام يكرر هذا التحيز في أحكامه، فتتأثر عدالة النتائج.</li>
+        </ol>
+      </div>
+
+      <div class="keyblock">
+        <h3 class="headfont">ثالثًا — إكمال الفراغات</h3>
+        <ol class="key-list">
+          <li>قانون مور</li>
+          <li>التعلم عبر الإنترنت (Online Learning)</li>
+          <li>التعلم الآلي (Machine Learning)</li>
+          <li>الذكاء الاصطناعي التوليدي (GenAI)</li>
+          <li>التحيز الخوارزمي</li>
+          <li>الحوسبة الكمومية (Quantum Computing)</li>
+        </ol>
+      </div>
+
+      <div class="keyblock">
+        <h3 class="headfont">رابعًا — التوصيل</h3>
+        <p class="key-note headfont">١-ب · ٢-أ · ٣-هـ · ٤-و · ٥-د · ٦-ج</p>
+      </div>
+
+      <div class="keyblock">
+        <h3 class="headfont">خامسًا وسادسًا — عناصر الإجابة المتوقعة (أسئلة مقالية وتطبيقية)</h3>
+        <ol class="key-list">
+          <li>قانون مور: ملاحظة تجريبية تصف اتجاهًا تاريخيًا لازدياد عدد الترانزستورات في الدوائر المتكاملة بمعدل يقارب الضعف كل عامين، وليس قانونًا فيزيائيًا ثابتًا. تحدٍّ هندسي: استمرار تصغير مكونات الدوائر يواجه تحديات هندسية وفيزيائية (مثل ازدياد تيارات التسرب وتأثيرات كمومية) تُبطئ الاتجاه.</li>
+          <li>الذكاء الاصطناعي مجال واسع يضم التعلم الآلي، الذي يضم بدوره التعلم العميق، وتعتمد غالبية أنظمة الذكاء الاصطناعي التوليدي الحالية على التعلم العميق؛ وهذه علاقة تعليمية مبسطة ولا ينبغي فهمها كتسلسل احتواء صارم في كل حالة.</li>
+          <li>الهلوسة: إنتاج الذكاء الاصطناعي التوليدي معلومات غير صحيحة أو غير مدعومة لكنها تبدو مقنعة. الإجراء المناسب: التحقق من المعلومة ومصدرها قبل الاعتماد عليها، وعدم الاكتفاء بمثال تسترجعه الذاكرة دون مصدر.</li>
+          <li>من أسباب التحيز الخوارزمي: بيانات تدريب متحيزة أو غير كافية (مثال: بيانات لا تمثل فئة معينة من المستخدمين)، وقد يدخل التحيز أيضًا من خلال طريقة بناء النظام (مثال: اختيار متغيرات غير مناسبة أو تصميم نموذج ينحاز لفئة دون قصد).</li>
+          <li>المبادئ الأربعة: العدالة، الشفافية، حماية الخصوصية، المساءلة. (تُقبل أي إجابة تشرح مبدأً واحدًا بمثال تطبيقي صحيح مثل: العدالة = عدم التمييز ظلمًا ضد شخص أو مجموعة بعينها، مثل نظام توظيف يُقيَّم بعدالة بغض النظر عن الجنس).</li>
+          <li>سؤال الموقف: (أ) التعلم الآلي غالبًا هو الأنسب لأن النظام يتعلم أنماطًا من بيانات سابقة لدعم قرار. (ب) من المخاطر: التحيز الخوارزمي ضد فئة من المتقدمين؛ إجراء مخفِّف: مراجعة بيانات التدريب والتحقق من عدالة النتائج عبر فئات مختلفة. (ج) تُقبل إجابة مبرَّرة بوضوح (غالبًا مسؤولية مشتركة تختلف حسب مصدر الخلل: تصميم النظام أم طريقة استخدامه).</li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =================== ANSWER KEY 2 =================== -->
+  <div class="sheet key-sheet page-break">
+    <div class="letterhead">
+      <p class="eyebrow headfont">نموذج الإجابة</p>
+      <h1 class="headfont">إجابات امتحان الوحدة الثانية: الأمن السيبراني</h1>
+    </div>
+    <div class="goldrule"></div>
+    <div class="body-pad">
+
+      <div class="keyblock">
+        <h3 class="headfont">أولًا — الاختيار من متعدد</h3>
+        <div class="key-grid">
+          <div><b>١</b> ب</div><div><b>٢</b> ب</div><div><b>٣</b> أ</div><div><b>٤</b> ب</div><div><b>٥</b> ب</div>
+          <div><b>٦</b> ب</div><div><b>٧</b> ج</div><div><b>٨</b> ج</div><div><b>٩</b> ب</div><div><b>١٠</b> ج</div>
+        </div>
+      </div>
+
+      <div class="keyblock">
+        <h3 class="headfont">ثانيًا — صح وخطأ (مع تصحيح الخطأ)</h3>
+        <ol class="key-list">
+          <li><b>✗ خطأ.</b> لا يأتي الأمان من تقنية واحدة، بل من الجمع بين عدة تقنيات: التشفير، الشهادات، التوقيعات، والمصادقة معًا.</li>
+          <li><b>✓ صح.</b></li>
+          <li><b>✓ صح.</b></li>
+          <li><b>✗ خطأ.</b> الهدف من DMZ هو فصل الخوادم المعرَّضة للجمهور عن الشبكة الداخلية لحمايتها، لا تعريض جميع الخوادم الداخلية.</li>
+          <li><b>✗ خطأ.</b> الاستجابة الفعلية قد تتضمن تداخلًا أو تكرارًا بين بعض الأنشطة بحسب طبيعة الحادث، وإن كان الترتيب العام يساعد على التنظيم.</li>
+          <li><b>✓ صح.</b></li>
+          <li><b>✓ صح.</b></li>
+          <li><b>✗ خطأ.</b> هذا وصف الأمان التقليدي القائم على المحيط الأمني؛ أما نهج انعدام الثقة فلا يمنح ثقة تلقائية لأي طرف داخل الشبكة أو خارجها.</li>
+        </ol>
+      </div>
+
+      <div class="keyblock">
+        <h3 class="headfont">ثالثًا — إكمال الفراغات</h3>
+        <ol class="key-list">
+          <li>مصافحة TLS</li>
+          <li>التشفير المتماثل</li>
+          <li>الشبكة الافتراضية الخاصة (VPN)</li>
+          <li>الدفاع في العمق (Defense in Depth)</li>
+          <li>الحادث الأمني</li>
+          <li>إزالة التهديد (الاستئصال)</li>
+        </ol>
+      </div>
+
+      <div class="keyblock">
+        <h3 class="headfont">رابعًا — التوصيل</h3>
+        <p class="key-note headfont">١-ج · ٢-د · ٣-ب · ٤-و · ٥-هـ · ٦-أ</p>
+      </div>
+
+      <div class="keyblock">
+        <h3 class="headfont">خامسًا وسادسًا — عناصر الإجابة المتوقعة (أسئلة مقالية وتطبيقية)</h3>
+        <ol class="key-list">
+          <li>أثناء مصافحة TLS يرسل الخادم شهادته الرقمية فيتحقق المتصفح من صلاحيتها وسلسلة ثقتها ومطابقتها لاسم الموقع، ثم يتبادل الطرفان مفاتيح الجلسة باستخدام آليات المفتاح العام. بعد ذلك تُحمى بيانات الجلسة بالتشفير المتماثل لسرعته وكفاءته.</li>
+          <li>2FA تستخدم عاملين فقط من فئتين مختلفتين (مثال: كلمة مرور + رمز عبر الرسائل القصيرة)، بينما MFA تستخدم عاملين أو أكثر من فئات مختلفة (مثال: كلمة مرور + بصمة إصبع + بطاقة دخول).</li>
+          <li>جدار الحماية يحمي نقطة دخول الشبكة فقط، فإذا اخترق المهاجم طبقة أخرى (كجهاز طرفي أو مسار اتصال) يبقى النظام مكشوفًا؛ لذلك يجمع "الدفاع في العمق" بين عدة طبقات (جدار حماية، VPN، DMZ، تحديث الأجهزة الطرفية) بحيث تقلل كل طبقة الخطر إذا فشلت طبقة أخرى.</li>
+          <li>النموذج التقليدي يفترض أن "الداخل آمن والخارج خطر"، لكن مع انتشار الخدمات السحابية والعمل عن بُعد أصبحت الحدود بين الداخل والخارج غير واضحة، فصار الاعتماد على موقع المستخدم وحده دليلًا غير كافٍ؛ لذلك يتحقق نهج انعدام الثقة من كل طلب وصول بناءً على الهوية والصلاحيات بصرف النظر عن الموقع.</li>
+          <li>المراحل الست: التحضير ← الاكتشاف ← الاحتواء ← إزالة التهديد (الاستئصال) ← الاستعادة ← الدروس المستفادة والتحسين. (تُقبل إجابة تشرح الغرض من أي مرحلتين بدقة، مثل: الاحتواء = الحد من انتشار الضرر، والاستعادة = إعادة الأنظمة والخدمات إلى حالة تشغيل آمنة وطبيعية).</li>
+          <li>سؤال الموقف: (أ) تسرب معلومات؛ جديّ لأنه يمس بيانات مالية حساسة للعملاء ويهدد السرية بجدية. (ب) الترتيب: اكتشاف وتأكيد وقوع التسرب ← عزل الخادم المتأثر ← إزالة الثغرة التي استُغلت ← استعادة الخدمة من نسخة احتياطية سليمة ← تحليل الحادث لتحسين الضوابط مستقبلًا. (ج) تُقبل أي تقنية مبرَّرة مثل: تشفير بيانات بطاقات الائتمان، أو المصادقة متعددة العوامل لحسابات الإدارة، أو وضع خادم الدفع داخل منطقة معزولة (DMZ) بضوابط إضافية.</li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
