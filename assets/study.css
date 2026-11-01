@@ -91,3 +91,4 @@ details.ans th{background:#d9f3e8;color:var(--ink)}
 .end{text-align:center;font-weight:800;color:var(--muted);margin:26px 0}
 @media(max-width:820px){.grid2,.grid3,.grid4{grid-template-columns:1fr}.wrap{padding:16px}.nav{padding:10px 16px}.brand{width:100%}}
 @media print{header,.bar,details.ans,.noprint,footer{display:none!important}body{background:#fff}.qcard{box-shadow:none;break-inside:avoid}.cover{background:#fff;color:#000;border:2px solid #000}.marks div{border:1px solid #000}}
+.fname{font:13px "IBM Plex Mono",monospace;color:var(--muted);direction:ltr;text-align:left;margin-top:8px}
