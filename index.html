@@ -315,6 +315,12 @@
 
   .unit-link{display:inline-block;margin:2px 0 6px 6px;padding:2px 10px;border:1px solid var(--line-strong);border-radius:999px;font-size:13px;font-weight:700;color:var(--teal-bright);text-decoration:none;background:rgba(63,217,199,.08)}
   .unit-link:hover{background:rgba(63,217,199,.18)}
+  .units-strip{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 28px 0;padding:10px;border:1px solid var(--line-strong);border-radius:15px;background:rgba(63,217,199,.06);}
+  .units-strip a{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:10px;border:1px solid var(--line);color:var(--ink);font-weight:700;font-size:13px;text-decoration:none;background:rgba(4,15,17,.55);transition:.2s}
+  .units-strip a b{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--amber);color:#062023;font-size:12px}
+  .units-strip a:hover{border-color:var(--line-strong);color:var(--teal-bright)}
+  .units-strip .us-all{background:linear-gradient(90deg,var(--teal),var(--teal-bright));color:#062023;border:0;width:100%;justify-content:center;font-size:14px}
+  @media(max-width:640px){.units-strip{margin:10px 12px 0;display:grid;grid-template-columns:1fr 1fr}.units-strip a{font-size:11.5px;padding:7px 6px}.units-strip .us-all{grid-column:1 / -1}}
 </style>
 </head>
 <body>
@@ -335,6 +341,17 @@
         <a class="nav-wa" href="#" id="btn-register">📲 التسجيل</a>
         <span class="visitor-badge" id="visitorBadge" title="عدد زوار الموقع">👀 <span id="visitorCount">…</span></span>
       </nav>
+    </div>
+
+    <div class="units-strip" aria-label="الوحدات">
+      <a class="us-all" href="الوحدات.html">📚 كل الوحدات: شرح + امتحان</a>
+      <a href="الوحدة_1_تكنولوجيا_المعلومات_والمجتمع.html"><b>1</b>تكنولوجيا المعلومات</a>
+      <a href="شرح_الوحدة_الثانية_الأمن_السيبراني.html"><b>2</b>الأمن السيبراني</a>
+      <a href="الوحدة_3_تطبيقات_الويب.html"><b>3</b>تطبيقات الويب</a>
+      <a href="الوحدة_4_تصميم_الويب_والوسائط.html"><b>4</b>تصميم الويب</a>
+      <a href="الوحدة_5_جمع_البيانات_وتنقيتها.html"><b>5</b>جمع البيانات</a>
+      <a href="الوحدة_6_التحليل_والتواصل.html"><b>6</b>التحليل والتواصل</a>
+      <a href="الوحدة_7_التعلم_الآلي_والذكاء_الاصطناعي.html"><b>7</b>التعلم الآلي</a>
     </div>
 
     <div class="hero">
