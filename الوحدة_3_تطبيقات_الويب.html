@@ -1,0 +1,396 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>شرح الوحدة الثالثة — تطبيقات الويب</title>
+<meta name="description" content="شرح الوحدة الثالثة (تطبيقات الويب) لمادة البرمجة والذكاء الاصطناعي — الصف الثاني الثانوي: الدروس 3-1 و3-2 و3-3 بالأمثلة واختبر نفسك.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#172033;--muted:#5b6680;--line:#e4e8f0;--blue:#1769e0;--blue2:#0e4fae;--green:#0b8f6a;--amber:#d58a00;--red:#c74634;--navy:#16213a}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#f8fbff 0%,var(--bg) 100%);color:var(--ink);font-family:"Cairo","Tahoma",Arial,sans-serif;line-height:1.85}
+a{color:inherit;text-decoration:none}
+bdi{unicode-bidi:isolate}
+.wrap{max-width:1100px;margin:auto;padding:24px}
+header{position:sticky;top:0;z-index:10;background:rgba(248,251,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{max-width:1100px;margin:auto;padding:12px 24px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.brand{font-weight:900;margin-left:auto}
+.nav a{padding:7px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:14px}
+.nav a.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.hero{padding:40px 0 18px}
+.hero h1{font-size:clamp(30px,5vw,50px);line-height:1.2;margin:0 0 12px}
+.hero p{color:var(--muted);max-width:820px;font-size:17px;margin:0}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;font-weight:800;border:1px solid var(--line);background:#fff}
+.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.toc{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0}
+.toc a{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;display:block;box-shadow:0 5px 20px rgba(20,35,60,.05)}
+.toc .k{color:var(--blue);font-weight:900}
+.toc .t{font-weight:800;font-size:17px}
+.toc .d{color:var(--muted);font-size:14px}
+.lesson{margin:40px 0;scroll-margin-top:80px}
+.lesson-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.no{background:var(--navy);color:#fff;border-radius:12px;padding:6px 12px;font-weight:900}
+.lesson h2{margin:0;font-size:clamp(23px,3.4vw,30px)}
+.q{color:var(--muted);margin:4px 0 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin:14px 0;box-shadow:0 5px 20px rgba(20,35,60,.05)}
+.card h3{margin:0 0 8px;font-size:19px}
+.card p{margin:6px 0}
+.card ul,.card ol{margin:6px 0;padding-right:22px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.grid2 .card,.grid3 .card{margin:0}
+.layer{border-top:5px solid var(--c)}
+.layer .tag{display:inline-block;background:var(--c);color:#fff;border-radius:999px;padding:1px 12px;font-weight:800;font-size:14px;margin-bottom:6px}
+.tip{background:#eef6ff;border-color:#cfe3ff}
+.warn{background:#fff8e8;border-color:#f4dca8;border-right:4px solid var(--amber)}
+.key{background:#effbf7;border-color:#c8ecdf;border-right:4px solid var(--green)}
+.steps{counter-reset:s;list-style:none;padding:0!important}
+.steps li{counter-increment:s;position:relative;padding:6px 44px 6px 0}
+.steps li::before{content:counter(s);position:absolute;right:0;top:6px;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#fff;font-weight:900;display:grid;place-items:center;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{border:1px solid var(--line);padding:9px 10px;text-align:right;vertical-align:top}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#f8fafd}
+.tw{overflow-x:auto}
+pre{direction:ltr;text-align:left;background:#1d2433;color:#e6edf3;border-radius:14px;padding:14px 16px;overflow-x:auto;font:14px/1.7 "IBM Plex Mono",monospace;margin:8px 0}
+pre .c{color:#8b97ab}pre .k{color:#ffb86b}pre .s{color:#9ee493}pre .t{color:#79c0ff}
+code{font-family:"IBM Plex Mono",monospace;background:#edf3ff;color:var(--blue2);border-radius:6px;padding:1px 6px;direction:ltr;unicode-bidi:isolate}
+.fname{font:13px "IBM Plex Mono",monospace;color:var(--muted);direction:ltr;text-align:left}
+.quiz details{border:1px solid #c8ecdf;background:#effbf7;border-radius:12px;padding:10px 14px;margin-top:10px}
+.quiz summary{cursor:pointer;font-weight:800;color:var(--green)}
+.cta{margin:46px 0 10px;background:var(--navy);color:#fff;border-radius:20px;padding:24px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.cta h3{margin:0;font-size:22px}
+.cta .btn{color:var(--ink)}
+footer{margin-top:30px;padding:22px 0;color:var(--muted);border-top:1px solid var(--line)}
+@media(max-width:820px){.toc,.grid2,.grid3{grid-template-columns:1fr}.wrap{padding:16px}.nav{padding:10px 16px}.brand{width:100%}}
+</style></head><body>
+<header><nav class="nav">
+<div class="brand">🌐 الوحدة الثالثة — تطبيقات الويب</div>
+<a href="index.html">🏠 الرئيسية</a><a href="intro.html">📚 خريطة المنهج</a><a href="شرح_المنهج_من_الفصل_1_إلى_7.html">📖 شرح المنهج</a><a href="شرح_الوحدة_الثانية_الأمن_السيبراني.html">🔐 شرح الأمن السيبراني كاملًا</a><a href="اسئلة_الكتاب_كاملة_الفصول_1_7.html">📝 أسئلة الكتاب</a><a href="امتحان_الوحدة_الأولى_والثانية.html">🧪 امتحان تجريبي 1+2</a><a class="active" href="الوحدة_3_تطبيقات_الويب.html">🌐 شرح الوحدة 3</a><a href="امتحان_الوحدة_3.html">🧪 امتحان الوحدة 3</a>
+</nav></header>
+<main class="wrap">
+<section class="hero">
+<h1>الوحدة الثالثة<br><span style="color:var(--blue)">تطبيقات الويب</span></h1>
+<p>البرمجة والذكاء الاصطناعي · الصف الثاني الثانوي. شرح الدروس <bdi dir="ltr">3-1</bdi> و<bdi dir="ltr">3-2</bdi> و<bdi dir="ltr">3-3</bdi> بالأمثلة، وفي آخر كل درس «اختبر نفسك». بعد ما تخلص، ادخل على الامتحان الشامل وقارن إجابتك بنموذج الإجابة.</p>
+<div class="btns">
+<a class="btn primary" href="امتحان_الوحدة_3.html">🧪 ادخل على امتحان الوحدة</a>
+<a class="btn" href="files/unit3-web-apps.pdf" target="_blank" rel="noopener">📄 العرض التقديمي <bdi>PDF</bdi></a>
+<a class="btn" href="files/unit3-web-apps.odp" download>⬇️ تحميل ملف العرض <bdi>ODP</bdi></a>
+</div>
+</section>
+
+<nav class="toc" aria-label="محتويات الوحدة">
+<a href="#l1"><div class="k">الدرس <bdi dir="ltr">3-1</bdi> · صفحة 50</div><div class="t">البنية العامة لتطبيقات الويب</div><div class="d">التطبيق 3 طبقات: واجهة أمامية تعرض، وواجهة خلفية تعالج، وقاعدة بيانات تخزّن.</div></a>
+<a href="#l2"><div class="k">الدرس <bdi dir="ltr">3-2</bdi> · صفحة 56</div><div class="t">طرق اتصال تطبيقات الويب</div><div class="d">العميل يطلب والخادم يستجيب عبر <bdi>HTTP/HTTPS</bdi>، بأسلوب <bdi>GET/POST</bdi>، ورمز حالة، و<bdi>API</bdi> يرجّع <bdi>JSON</bdi>.</div></a>
+<a href="#l3"><div class="k">الدرس <bdi dir="ltr">3-3</bdi> · صفحة 62</div><div class="t">أساسيات تقنية الواجهة الأمامية</div><div class="d"><bdi>HTML</bdi> للهيكل، و<bdi>CSS</bdi> للمظهر، و<bdi>JavaScript</bdi> للسلوك والتفاعل.</div></a>
+</nav>
+
+<!-- ====================== 3-1 ====================== -->
+<section class="lesson" id="l1">
+<div class="lesson-head"><span class="no">3-1</span><h2>البنية العامة لتطبيقات الويب</h2></div>
+<p class="q">السؤال الرئيسي: كيف يُبنى تطبيق الويب، وكيف تعمل طبقاته الثلاث معًا للاستجابة لما يفعله المستخدم؟</p>
+
+<div class="grid2">
+<div class="card"><h3>ما هو تطبيق الويب؟</h3><p><b>تطبيق الويب:</b> تطبيق يُستخدم عادةً من خلال <b>متصفح الويب</b>، وقد يكون بعضه قابلًا للتثبيت على الجهاز.</p><p>أمثلة: خدمات الفيديو · التسوق · البريد الإلكتروني · الخرائط على الويب.</p></div>
+<div class="card tip"><h3>ملاحظة مهمة</h3><p>اللي بتشوفه على الشاشة <b>جزء بس</b> من التطبيق؛ وراه أجزاء تانية شغالة على <b>الخادم</b> بتعالج البيانات وتخزّنها.</p></div>
+</div>
+
+<h3 style="margin:26px 0 10px">الطبقات الثلاث لتطبيق الويب</h3>
+<div class="grid3">
+<div class="card layer" style="--c:#e8a33a"><span class="tag">تعرض وتجمع</span><h3>🖥️ الواجهة الأمامية</h3><p><b>الدور:</b> الجزء الذي يراه المستخدم ويتفاعل معه؛ يعرض المحتوى ويستقبل ما يكتبه أو يختاره.</p><p><b>أين تعمل؟</b> على المتصفح.</p><p><b>أمثلة:</b> شاشة البحث، صفحات عرض المنتجات، نماذج الإدخال.</p></div>
+<div class="card layer" style="--c:#2a9d8f"><span class="tag">تقرر وتعالج</span><h3>⚙️ الواجهة الخلفية</h3><p><b>الدور:</b> تعالج الطلبات وتطبّق قواعد التطبيق.</p><p><b>أين تعمل؟</b> على الخادم (لا يراها المستخدم).</p><p><b>أمثلة:</b> البحث عن منتجات تطابق البحث، التحقق من تسجيل الدخول.</p></div>
+<div class="card layer" style="--c:#3b6fc4"><span class="tag">تخزّن وتسترجع</span><h3>🗄️ قاعدة البيانات</h3><p><b>الدور:</b> تحفظ البيانات وتوفرها عند الحاجة (قواعد بيانات، ملفات، ذاكرة مخبّأة، خدمات خارجية).</p><p><b>أين تعمل؟</b> خلف الخادم.</p><p><b>أمثلة:</b> معلومات المنتجات، بيانات المستخدمين، سجل الطلبات.</p></div>
+</div>
+<div class="card tip"><b>تشبيه:</b> الجرسون = الواجهة الأمامية · المطبخ = الواجهة الخلفية · المخزن = قاعدة البيانات.</div>
+
+<div class="card"><h3>مثال: البحث عن منتج في متجر إلكتروني</h3>
+<ol class="steps">
+<li>تستقبل الواجهة الأمامية كلمات البحث من المستخدم.</li>
+<li>ترسل كلمات البحث إلى الواجهة الخلفية.</li>
+<li>تطلب الواجهة الخلفية المنتجات المطابقة من قاعدة البيانات.</li>
+<li>تعيد قاعدة البيانات النتائج.</li>
+<li>تجهّز الواجهة الخلفية النتائج وترسلها.</li>
+<li>تعرض الواجهة الأمامية النتائج على الشاشة.</li>
+</ol>
+<p class="warn" style="padding:10px 14px;border-radius:12px;margin-top:10px"><b>لاحظ:</b> الطلب ينزل من المستخدم ← الأمامية ← الخلفية ← البيانات، والاستجابة تطلع بالعكس. <b>الواجهة الأمامية لا تتعامل مع قاعدة البيانات مباشرة.</b></p>
+</div>
+
+<div class="card"><h3>نفس البنية في كل مكان: إعدادات تطبيقات الويب المألوفة</h3>
+<div class="tw"><table>
+<tr><th>الخدمة</th><th>الواجهة الأمامية</th><th>الواجهة الخلفية</th><th>قاعدة البيانات</th></tr>
+<tr><td><b>موقع مشاركة الفيديو</b></td><td>عرض شاشات تشغيل الفيديو والبحث؛ استقبال إجراءات المستخدم</td><td>اختيار الفيديوهات الموصى بها؛ تجميع عدد المشاهدات</td><td>بيانات الفيديو، معلومات المستخدمين، سجل المشاهدة</td></tr>
+<tr><td><b>شبكة التواصل الاجتماعي</b></td><td>عرض الخط الزمني وشاشات النشر؛ إرسال المحتوى</td><td>تحديد الجمهور المستهدف؛ التحكم في الإشعارات الفورية</td><td>المنشورات، علاقات المتابعة، الرسائل</td></tr>
+<tr><td><b>موقع تجارة إلكترونية</b></td><td>عرض قوائم المنتجات وسلة التسوق؛ استقبال الطلبات</td><td>التحقق من المخزون؛ إرسال طلبات الدفع والتعامل مع نتائجها</td><td>معلومات المنتجات، سجل الطلبات، معلومات العملاء</td></tr>
+</table></div>
+<p class="key" style="padding:10px 14px;border-radius:12px;margin-top:12px"><b>الفكرة الرئيسية:</b> كل خدمة تقريبًا تُبنى على نفس الطبقات الثلاث؛ اللي بيتغير هو <b>نوع البيانات</b> و<b>قواعد المعالجة</b> و<b>الشاشات المعروضة</b>.</p>
+</div>
+
+<div class="card"><h3>فكّر كمهندس: تطبيق حجز مواعيد في عيادة</h3>
+<div class="tw"><table>
+<tr><th>الميزة</th><th>الطبقة</th><th>السبب</th></tr>
+<tr><td><b>نموذج الحجز</b></td><td>الواجهة الأمامية</td><td>الجزء الذي يراه المريض ويكتب فيه</td></tr>
+<tr><td><b>التحقق من الأوقات المتاحة</b></td><td>الواجهة الخلفية</td><td>معالجة وتطبيق قواعد (هل الموعد محجوز؟)</td></tr>
+<tr><td><b>تخزين الزيارات السابقة</b></td><td>قاعدة البيانات</td><td>بيانات تُحفظ وتُسترجع لاحقًا</td></tr>
+</table></div>
+<div class="grid2" style="margin-top:12px">
+<div class="card warn"><h3>❓ صفحة الحجز فتحت لكن مفيش أوقات؟</h3><p>المشكلة ممكن تكون في الواجهة الخلفية (لم تحسب الأوقات) أو قاعدة البيانات (لم تُرجع المواعيد) أو الاتصال بينهما.</p></div>
+<div class="card key"><h3>✅ القرار الأفضل</h3><p>تنظيم المسؤوليات في طبقات واضحة:</p><ul><li>تحديد مكان الخطأ وإصلاحه أسهل.</li><li>تطوير طبقة دون إعادة بناء الباقي.</li></ul></div>
+</div>
+</div>
+
+<div class="card tip"><h3>مصطلحات أساسية</h3><ul>
+<li><b>تطبيق الويب:</b> يُستخدم عادةً عبر متصفح الويب.</li>
+<li><b>الواجهة الأمامية:</b> الشاشة التي يراها المستخدمون ويتفاعلون معها.</li>
+<li><b>الواجهة الخلفية:</b> المعالجة الخفية من جانب الخادم.</li>
+<li><b>قاعدة البيانات:</b> حيث تُخزَّن البيانات وتُدار.</li>
+</ul></div>
+
+<div class="card quiz"><h3>📝 اختبر نفسك — الدرس <bdi dir="ltr">3-1</bdi></h3>
+<ol>
+<li>في تطبيق الطقس: سمِّ الطبقة المسؤولة عن: أخذ اسم المدينة – البحث عن بيانات التوقعات – تخزين التوقعات السابقة.</li>
+<li>حدد الطبقة في شبكة تواصل: شاشة الخط الزمني – معالجة تحديد الجمهور – تخزين علاقات المتابعة – معالجة الإشعارات.</li>
+<li>لماذا لا يمكن للواجهة الأمامية وحدها أن تعرض نتائج بحث صحيحة؟</li>
+</ol>
+<details><summary>✔️ اعرض الإجابات</summary><ol>
+<li>الأمامية – الخلفية – قاعدة البيانات.</li>
+<li>أمامية – خلفية – قاعدة بيانات – خلفية.</li>
+<li>لأن البيانات في قاعدة البيانات، والبحث فيها مهمة الواجهة الخلفية على الخادم.</li>
+</ol></details>
+</div>
+</section>
+
+<!-- ====================== 3-2 ====================== -->
+<section class="lesson" id="l2">
+<div class="lesson-head"><span class="no">3-2</span><h2>طرق اتصال تطبيقات الويب</h2></div>
+<p class="q">السؤال الرئيسي: كيف يتواصل العميل والخادم لتشغيل تطبيق الويب، وما القواعد والرسائل التي يستخدمانها؟</p>
+
+<div class="card"><h3>العميل والخادم — نموذج الطلب والاستجابة</h3>
+<div class="grid2">
+<div><p><b>العميل <bdi>(Client)</bdi>:</b> برنامج أو جهاز يرسل طلبًا إلى خدمة أخرى؛ الجانب الذي يطلب البيانات أو المعالجة. مثل: المتصفح، تطبيق الهاتف.</p></div>
+<div><p><b>الخادم <bdi>(Server)</bdi>:</b> الجانب الذي يستقبل الطلبات من العملاء، ويعالجها، ويعيد الاستجابات. مثل: خادم الويب، خادم التطبيقات.</p></div>
+</div>
+<p>الطلب: «أرني هذه الصفحة» ← الاستجابة: إعادة البيانات المطلوبة. تعتمد كثير من تطبيقات الويب على إرسال العميل طلبًا وإعادة الخادم استجابة، وتحدد بروتوكولات مثل <bdi>HTTP</bdi> قواعد هذا التبادل.</p>
+</div>
+
+<div class="grid2">
+<div class="card layer" style="--c:#c74634"><span class="tag">🔓 غير مشفّر</span><h3><bdi>HTTP</bdi> — بروتوكول نقل النص التشعبي</h3><ul><li>بروتوكول يُستخدم لتبادل الرسائل بين عميل وخادم على الويب.</li><li>لا يشفّر المحتوى؛ المتجسس يمكنه قراءته.</li><li>العنوان يبدأ بـ <code>http://</code></li></ul></div>
+<div class="card layer" style="--c:#2f9e5b"><span class="tag">🔒 آمن</span><h3><bdi>HTTPS</bdi> — <bdi>HTTP</bdi> عبر اتصال <bdi>TLS</bdi> آمن</h3><ul><li>استخدام <bdi>HTTP</bdi> عبر اتصال <bdi>TLS</bdi> <bdi>(Transport Layer Security)</bdi> آمن.</li><li>يحمي سرية الاتصال وسلامته، ويصادق على الخادم.</li><li>العنوان يبدأ بـ <code>https://</code></li></ul></div>
+</div>
+<div class="card warn"><h3>ليه صفحة تسجيل الدخول لازم تكون <bdi>HTTPS</bdi>؟</h3><p>لأن اسم المستخدم وكلمة المرور بيتبعتوا عبر الشبكة؛ ولو <bdi>HTTP</bdi> عادي ممكن أي متجسس (مثلًا على <bdi>Wi-Fi</bdi> عام) يقرأهم أو يعدّلهم. في <bdi>HTTPS</bdi> بيحمي <bdi>TLS</bdi> المحتوى ويتأكد من هوية الخادم.</p><p><b>ربط بالوحدة الثانية:</b> <bdi>TLS</bdi> هو نفس الاتصال الآمن اللي درسته في «تقنيات التشفير والمصادقة».</p></div>
+
+<div class="card"><h3>طريقة طلب <bdi>HTTP</bdi>: <bdi>GET</bdi> و <bdi>POST</bdi></h3>
+<p><b>طريقة طلب <bdi>HTTP</bdi>:</b> معلومات في الطلب المرسل من العميل إلى الخادم توضح «نوع العملية المطلوبة».</p>
+<div class="grid2">
+<div class="card tip"><h3><bdi>GET</bdi> — «هات»</h3><p>يُستخدم عادةً <b>لطلب</b> مورد أو بيانات من الخادم.</p><p>أمثلة: عرض صفحة ويب · نتائج البحث · توقعات الطقس.</p></div>
+<div class="card warn"><h3><bdi>POST</bdi> — «خد»</h3><p>يُستخدم عادةً <b>لإرسال</b> بيانات ليعالجها الخادم.</p><p>أمثلة: بيانات تسجيل الدخول · محتويات نموذج.</p></div>
+</div>
+<div class="fname" style="margin-top:12px">request.http</div>
+<pre><span class="c"># الطلب: العميل يطلب نتائج البحث</span>
+<span class="k">GET</span> /search?q=laptop HTTP/1.1
+Host: shop.example.com
+
+<span class="c"># الاستجابة: الخادم يرد</span>
+HTTP/1.1 <span class="s">200 OK</span>
+Content-Type: application/json</pre>
+<p style="color:var(--muted);font-size:14px">السطر الثاني طلب <bdi>GET</bdi>، والسطر قبل الأخير استجابة برمز الحالة 200 (للتوضيح فقط).</p>
+</div>
+
+<div class="card"><h3>رموز حالة <bdi>HTTP</bdi></h3>
+<p><b>رمز حالة <bdi>HTTP</bdi>:</b> رقم في الاستجابة المرسلة من الخادم إلى العميل يشير إلى نتيجة المعالجة.</p>
+<div class="tw"><table>
+<tr><th>الرمز</th><th>المعنى</th><th>الشرح</th><th>مثال</th></tr>
+<tr><td><b>200</b></td><td>نجاح</td><td>تمت معالجة الطلب بنجاح</td><td>الصفحة فتحت عادي</td></tr>
+<tr><td><b>404</b></td><td>غير موجود</td><td>المورد المطلوب غير موجود بهذا العنوان</td><td>رابط غلط أو صفحة اتمسحت</td></tr>
+<tr><td><b>500</b></td><td>خطأ في الخادم</td><td>خطأ داخلي في الخادم منعه من إكمال الطلب</td><td>الموقع «واقع» من عندهم</td></tr>
+</table></div>
+<p class="warn" style="padding:10px 14px;border-radius:12px;margin-top:12px"><b>انتبه:</b> في 404 المشكلة غالبًا في العنوان المطلوب، أما 500 فالمشكلة في جانب الخادم، والرمز وحده لا يحدد السبب التفصيلي.</p>
+</div>
+
+<div class="card"><h3>واجهة برمجة التطبيقات <bdi>(API)</bdi> وصيغة <bdi>JSON</bdi></h3>
+<div class="grid2">
+<div><p><b>API (Application Programming Interface):</b> مجموعة قواعد واضحة تسمح لبرنامج بطلب بيانات أو وظائف من برنامج آخر؛ «عقد» محدد للتواصل بين البرمجيات.</p>
+<p><b>JSON (JavaScript Object Notation):</b> صيغة نصية شائعة لتمثيل وتبادل البيانات المهيكلة باستخدام كائنات ومصفوفات وقيم بسيطة، تدعمها لغات كثيرة.</p>
+<p>قد ترسل الواجهة الأمامية طلبات إلى خدمة خلفية <b>عبر <bdi>API</bdi></b> وتستقبل منها البيانات، غالبًا <b>بصيغة <bdi>JSON</bdi></b>.</p></div>
+<div><div class="fname">weather.json</div>
+<pre>{
+  <span class="t">"city"</span>: <span class="s">"Cairo"</span>,
+  <span class="t">"temperature"</span>: <span class="k">31</span>
+}</pre>
+<div class="tw"><table><tr><th>المفتاح <bdi>(key)</bdi></th><th>القيمة <bdi>(value)</bdi></th></tr><tr><td><code>"city"</code></td><td><code>"Cairo"</code></td></tr><tr><td><code>"temperature"</code></td><td><code>31</code></td></tr></table></div></div>
+</div>
+</div>
+
+<div class="card"><h3>أمثلة تطبيقية على الاتصال</h3>
+<div class="grid2">
+<div class="card tip"><h3>🌦️ تطبيق الطقس</h3><p>يطلب تطبيق الطقس من <bdi>API</bdi> خدمة الطقس توقعات اليوم:</p><ul><li><b>الطريقة:</b> <bdi>GET</bdi> لأنه يسترجع بيانات.</li><li><b>البروتوكول:</b> <bdi>HTTPS</bdi> لحماية الاتصال من التلاعب والتجسس والتأكد أن الخادم حقيقي.</li><li><b>ميزة <bdi>JSON</bdi>:</b> منظمة وسهلة القراءة وتدعمها لغات كثيرة، فيسهل استخراج درجة الحرارة وعرضها.</li></ul></div>
+<div><b>مثال: نظام مدرسة</b><div class="tw"><table>
+<tr><th>الإجراء</th><th>الأسلوب</th><th>ملاحظة</th></tr>
+<tr><td>تحميل سجل درجات الطالب</td><td>GET</td><td>استرجاع بيانات</td></tr>
+<tr><td>إرسال نموذج تسجيل الدخول</td><td>POST</td><td>إرسال بيانات للمعالجة، عبر <bdi>HTTPS</bdi></td></tr>
+<tr><td>طلب الجدول الدراسي من نظام مدرسة أخرى</td><td>GET</td><td>يتضمن <bdi>API</bdi> لأنه تواصل بين برنامجين</td></tr>
+</table></div></div>
+</div>
+<p class="key" style="padding:10px 14px;border-radius:12px;margin-top:12px"><b>الفكرة الرئيسية:</b> يطلب العميل ويستجيب الخادم، باستخدام بروتوكول <bdi>(HTTP/HTTPS)</bdi>، وطريقة طلب <bdi>(GET/POST)</bdi>، ورمز حالة، وغالبًا <bdi>API</bdi> تعيد البيانات بصيغة <bdi>JSON</bdi>.</p>
+</div>
+
+<div class="card quiz"><h3>📝 اختبر نفسك — الدرس <bdi dir="ltr">3-2</bdi></h3>
+<ol>
+<li>حدد <bdi>GET</bdi> أو <bdi>POST</bdi>: عرض صفحة ويب – إرسال اسم المستخدم وكلمة المرور – عرض نتائج البحث – إرسال نموذج التواصل.</li>
+<li>أي تركيبة غير صحيحة: (أ) 200 نجاح (ب) 404 المورد غير موجود (ج) 500 تمت المعالجة بنجاح (د) 500 مشكلة في جانب الخادم؟</li>
+<li>أكمل: الاتصال بين (....) الذي يرسل طلبًا و(....) الذي يعيد استجابة، ويُستخدم بروتوكول (....)، ويسمى استخدامه عبر <bdi>TLS</bdi> آمن (....).</li>
+</ol>
+<details><summary>✔️ اعرض الإجابات</summary><ol>
+<li>GET – POST – GET – POST.</li>
+<li>(ج).</li>
+<li>العميل – الخادم – <bdi>HTTP</bdi> – <bdi>HTTPS</bdi>.</li>
+</ol></details>
+</div>
+</section>
+
+<!-- ====================== 3-3 ====================== -->
+<section class="lesson" id="l3">
+<div class="lesson-head"><span class="no">3-3</span><h2>أساسيات تقنية الواجهة الأمامية</h2></div>
+<p class="q">السؤال الرئيسي: كيف تعمل <bdi>HTML</bdi> و<bdi>CSS</bdi> و<bdi>JavaScript</bdi> معًا لبناء صفحة ويب، وما الذي يجعل الواجهة الأمامية الحديثة ذات معنى وقابلة للتكيف؟</p>
+
+<div class="grid3">
+<div class="card layer" style="--c:#e2552d"><span class="tag">البنية</span><h3>HTML</h3><p>يحدد بنية (هيكل) صفحة الويب؛ يصف العناوين والفقرات والصور والروابط.</p><p><b>التشبيه:</b> هيكل المبنى.</p></div>
+<div class="card layer" style="--c:#2965f1"><span class="tag">المظهر</span><h3>CSS</h3><p>يحدد مظهر الصفحة: الألوان، التخطيط، الحجم، الخطوط.</p><p><b>التشبيه:</b> الديكور الداخلي والخارجي.</p></div>
+<div class="card layer" style="--c:#c9a400"><span class="tag">السلوك</span><h3>JavaScript</h3><p>يضيف السلوك والتفاعلية: الاستجابة للأزرار وتحديث جزء فقط من الشاشة.</p><p><b>التشبيه:</b> أنظمة الكهرباء والسباكة.</p></div>
+</div>
+<div class="card tip">ليس ضروريًا أن تستخدم الصفحة الثلاث معًا: يمكن <bdi>HTML</bdi> وحده، أو <bdi>HTML</bdi> مع <bdi>CSS</bdi> و<bdi>JavaScript</bdi> حسب الوظائف المطلوبة. <b>صفحة الويب الحديثة تركيبة، وليست تقنية واحدة.</b></div>
+
+<div class="card"><h3>مثال متدرّج: صفحة «الكتب التي أحبها»</h3>
+<p><b>الخطوة الأولى: الهيكل بـ <bdi>HTML</bdi></b></p>
+<div class="fname">index.html</div>
+<pre><span class="t">&lt;h1&gt;</span>صفحتي على الويب<span class="t">&lt;/h1&gt;</span>
+<span class="t">&lt;p&gt;</span>هذه صفحة بسيطة عن كتبي المفضلة.<span class="t">&lt;/p&gt;</span>
+<span class="t">&lt;h2&gt;</span>الكتب التي أحبها<span class="t">&lt;/h2&gt;</span>
+<span class="t">&lt;ul&gt;</span>
+  <span class="t">&lt;li&gt;</span>كتاب أ<span class="t">&lt;/li&gt;</span>
+  <span class="t">&lt;li&gt;</span>كتاب ب<span class="t">&lt;/li&gt;</span>
+<span class="t">&lt;/ul&gt;</span>
+<span class="t">&lt;button</span> id=<span class="s">"likeBtn"</span><span class="t">&gt;</span>أعجبني<span class="t">&lt;/button&gt;</span>
+<span class="t">&lt;span</span> id=<span class="s">"count"</span><span class="t">&gt;</span>0<span class="t">&lt;/span&gt;</span></pre>
+<ul><li>عنوان رئيسي <code>h1</code> وفقرة <code>p</code>.</li><li>عنوان فرعي <code>h2</code> وقائمة <code>ul</code> فيها عناصر <code>li</code>.</li><li>زر وعدّاد لكل منهما <code>id</code> لنستخدمه لاحقًا.</li></ul>
+<p style="color:var(--muted)">المحتوى موجود، لكن الشكل بسيط وبدون تفاعل. الخطوة التالية: <bdi>CSS</bdi> ثم <bdi>JavaScript</bdi>.</p>
+
+<div class="grid2" style="margin-top:10px">
+<div><p><b>الخطوة الثانية: التنسيق بـ <bdi>CSS</bdi> (ألوان وخطوط)</b></p><div class="fname">style.css</div>
+<pre><span class="t">h1</span> {
+  color: <span class="s">navy</span>;
+  font-size: <span class="k">32px</span>;
+}
+<span class="t">body</span> { background-color: <span class="s">#f5f5f5</span>; }
+<span class="t">button</span> {
+  background-color: <span class="s">black</span>;
+  color: <span class="s">white</span>;
+}</pre></div>
+<div><p><b>الخطوة الثالثة: السلوك بـ <bdi>JavaScript</bdi> (عدّاد يزيد عند الضغط)</b></p><div class="fname">script.js</div>
+<pre><span class="k">let</span> likes = <span class="k">0</span>;
+document.getElementById(<span class="s">"likeBtn"</span>)
+  .onclick = <span class="k">function</span> () {
+    likes = likes + <span class="k">1</span>;
+    document.getElementById(<span class="s">"count"</span>)
+      .textContent = likes;
+  };</pre></div>
+</div>
+<p>لاحظ: <bdi>JavaScript</bdi> حدّث <b>جزءًا فقط</b> من الشاشة (الرقم) وليس الصفحة كلها. الكود للتوضيح؛ المطلوب في الامتحان فهم دور كل تقنية.</p>
+<p><b>جرّبها بنفسك:</b> <button id="likeBtn" style="font:inherit;background:#000;color:#fff;border:0;border-radius:8px;padding:2px 14px;cursor:pointer">أعجبني</button> <span id="count" style="font-weight:900">0</span></p>
+</div>
+
+<div class="card"><h3>تدريب: من المسؤول عن كل مهمة؟</h3>
+<div class="tw"><table>
+<tr><th>#</th><th>المهمة</th><th>التقنية</th></tr>
+<tr><td>1</td><td>وصف بنية العناوين والفقرات</td><td>HTML</td></tr>
+<tr><td>2</td><td>تغيير لون النص وحجمه</td><td>CSS</td></tr>
+<tr><td>3</td><td>تحديث جزء من الشاشة عند الضغط على زر</td><td>JavaScript</td></tr>
+<tr><td>4</td><td>وضع الصور والروابط</td><td>HTML</td></tr>
+<tr><td>5</td><td>تحديد لون خلفية الصفحة بأكملها</td><td>CSS</td></tr>
+<tr><td>6</td><td>التحقق من صحة المحتويات المُدخلة في نموذج</td><td>JavaScript</td></tr>
+</table></div>
+<p class="key" style="padding:10px 14px;border-radius:12px;margin-top:12px"><b>قاعدة سريعة:</b> محتوى أو بنية ← <bdi>HTML</bdi> · شكل أو لون ← <bdi>CSS</bdi> · تفاعل ← <bdi>JavaScript</bdi>.</p>
+</div>
+
+<div class="card"><h3><bdi>HTML</bdi> الدلالي <bdi>(Semantic HTML)</bdi></h3>
+<p><b>التعريف:</b> استخدام عناصر توضح <b>وظيفة</b> أجزاء الصفحة: <code>header</code> أعلى الصفحة، <code>nav</code> للتنقل، <code>main</code> للمحتوى الرئيسي، <code>footer</code> أسفل الصفحة.</p>
+<div class="fname">layout.html</div>
+<pre><span class="c">&lt;!-- غير دلالي: صناديق لا توضح وظيفتها --&gt;</span>
+<span class="t">&lt;div&gt;</span>شعار الموقع<span class="t">&lt;/div&gt;</span>
+<span class="t">&lt;div&gt;</span>الرئيسية | الأخبار<span class="t">&lt;/div&gt;</span>
+<span class="t">&lt;div&gt;</span>نص الخبر...<span class="t">&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- دلالي: اسم العنصر يقول وظيفته --&gt;</span>
+<span class="t">&lt;header&gt;</span>شعار الموقع<span class="t">&lt;/header&gt;</span>
+<span class="t">&lt;nav&gt;</span>الرئيسية | الأخبار<span class="t">&lt;/nav&gt;</span>
+<span class="t">&lt;main&gt;</span>نص الخبر...<span class="t">&lt;/main&gt;</span>
+<span class="t">&lt;footer&gt;</span>جميع الحقوق محفوظة<span class="t">&lt;/footer&gt;</span></pre>
+<p><b>فوائده:</b></p>
+<ol><li><b>إمكانية الوصول:</b> يساعد قارئ الشاشة على فهم بنية الصفحة والتنقل فيها.</li><li><b>فهم محركات البحث:</b> قد يساعد محركات البحث على فهم المحتوى، <b>لكنه لا يضمن ترتيبًا أعلى</b>.</li></ol>
+<p class="warn" style="padding:10px 14px;border-radius:12px"><b>تنبيه امتحاني:</b> <bdi>HTML</bdi> الدلالي لا يجعل الصفحة أسرع بالضرورة، ولا يضمن الترتيب الأول في البحث.<br><b>SEO:</b> ممارسات تجعل الصفحة أيسر في الفهرسة والظهور في نتائج البحث.</p>
+</div>
+
+<div class="card"><h3>التصميم المتجاوب <bdi>(Responsive Design)</bdi></h3>
+<p><b>التعريف:</b> مفهوم تصميمي يُضبط فيه التخطيط تلقائيًا وفقًا لأحجام الشاشات المختلفة مثل الكمبيوتر والهواتف الذكية والأجهزة اللوحية.</p>
+<p><b>فائدته:</b> يساعد الصفحة على التكيف مع أحجام الشاشات وتحسين سهولة استخدامها.</p>
+<p><b>نهج الأولوية للجوال:</b> لأن كثيرًا من الناس يستخدمون الويب عبر الهواتف، يراعي المطورون الشاشات الصغيرة منذ بداية التصميم.</p>
+<p>كمبيوتر: 4 أعمدة · تابلت: 2 · موبايل: 1</p>
+<div class="fname">responsive.css</div>
+<pre><span class="t">.products</span> { grid-template-columns: repeat(<span class="k">4</span>, 1fr); }
+<span class="k">@media</span> (max-width: <span class="k">600px</span>) {
+  <span class="t">.products</span> { grid-template-columns: 1fr; }
+}</pre>
+<p style="color:var(--muted);font-size:14px">💡 الصفحة دي نفسها متجاوبة: صغّر نافذة المتصفح أو افتحها من الموبايل وشوف الكروت بتترتب إزاي.</p>
+</div>
+
+<div class="card"><h3>أطر العمل والمكتبات</h3>
+<p><b>إطار العمل:</b> بنية توفر مسبقًا وظائف ومكونات شائعة الاستخدام، لجعل تطوير تطبيقات الويب أكثر كفاءة؛ فلا يحتاج المطورون إلى كتابة كل الكود من الصفر، ويبنون الصفحات من <b>مكوّنات قابلة لإعادة الاستخدام</b>.</p>
+<div class="grid3">
+<div class="card tip"><h3>React</h3><p><b>مكتبة <bdi>JavaScript</bdi></b> لبناء واجهات المستخدم من مكونات قابلة لإعادة الاستخدام، وتحديثها عند تغير البيانات.</p></div>
+<div class="card tip"><h3>Vue</h3><p><b>إطار بسيط</b> له بنية بسيطة ويتيح بناء تطبيقات الويب تدريجيًا بدءًا من ميزات صغيرة.</p></div>
+<div class="card tip"><h3>Next.js</h3><p><b>إطار مبني على <bdi>React</bdi></b> يوفر التوجيه وطرقًا مختلفة لعرض الصفحات والعمل على الخادم والعميل.</p></div>
+</div>
+<p class="key" style="padding:10px 14px;border-radius:12px;margin-top:12px"><b>مثال للمكوّن:</b> في متجر تصمم «بطاقة منتج» واحدة (صورة + اسم + سعر + زر شراء) وتستخدمها لألف منتج بدل ما تكتب الكود ألف مرة.</p>
+</div>
+
+<div class="card"><h3>فكّر كمهندس: صفحة نادٍ طلابي</h3>
+<p>نادٍ طلابي يريد صفحة تعرض فعالياته، منسقة بألوان النادي، وفيها زر يعرض عدد المسجلين.</p>
+<div class="tw"><table>
+<tr><th>المطلوب</th><th>التقنية</th></tr>
+<tr><td>قائمة الفعاليات</td><td>HTML</td></tr>
+<tr><td>ألوان النادي وتخطيطه</td><td>CSS</td></tr>
+<tr><td>عدّاد التسجيل الحي</td><td>JavaScript</td></tr>
+<tr><td>قراءة أسهل على الهاتف</td><td>التصميم المتجاوب</td></tr>
+<tr><td>مساعدة قارئ الشاشة</td><td><bdi>HTML</bdi> الدلالي</td></tr>
+</table></div>
+<p class="key" style="padding:10px 14px;border-radius:12px;margin-top:12px"><b>القرار الأفضل:</b> استخدام <bdi>HTML</bdi> و<bdi>CSS</bdi> و<bdi>JavaScript</bdi> كلٌّ حسب دوره بدل ملف واحد: التعديل أسهل (تغيير الألوان دون لمس المحتوى)، وتنظيم أوضح واكتشاف أسرع للأخطاء.</p>
+</div>
+
+<div class="card quiz"><h3>📝 اختبر نفسك — الدرس <bdi dir="ltr">3-3</bdi></h3>
+<ol>
+<li>ما الاختصار من 4 أحرف للتقنية التي تحدد بنية الصفحة؟ ومن 3 أحرف للتي تحدد مظهرها؟</li>
+<li>أي مما يلي لا يمثل فائدة لـ <bdi>HTML</bdi> الدلالي: (أ) قارئ الشاشة يفهم البنية (ب) محركات البحث تفهم المحتوى (ج) عرض الصفحة أسرع بالضرورة (د) إيصال المعلومات لذوي الإعاقة البصرية؟</li>
+<li>لماذا نحتاج التصميم المتجاوب؟</li>
+</ol>
+<details><summary>✔️ اعرض الإجابات</summary><ol>
+<li>HTML – CSS.</li>
+<li>(ج).</li>
+<li>لأن المواقع يُوصَل إليها من أجهزة متنوعة: كمبيوتر وهواتف وأجهزة لوحية.</li>
+</ol></details>
+</div>
+</section>
+
+<div class="cta"><div><h3>خلصت الشرح؟ 💪</h3><p style="margin:4px 0 0;opacity:.85">ادخل على الامتحان الشامل للوحدة (50 درجة · ساعة ونصف) وبعدها قارن إجابتك بنموذج الإجابة.</p></div><a class="btn" href="امتحان_الوحدة_3.html">🧪 ابدأ الامتحان</a></div>
+
+<footer>شرح الوحدة الثالثة «تطبيقات الويب» — مأخوذ من الكتاب المدرسي، الدروس <bdi dir="ltr">3-1</bdi> و<bdi dir="ltr">3-2</bdi> و<bdi dir="ltr">3-3</bdi> · م. محمود محمد · <a href="https://wa.me/201023958338" target="_blank" rel="noopener">📲 واتساب</a></footer>
+</main>
+<script>
+(function(){
+  var likes = 0, btn = document.getElementById('likeBtn'), out = document.getElementById('count');
+  btn.onclick = function(){ likes = likes + 1; out.textContent = likes; };
+})();
+(function(){
+  var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyZigwbjJMvA0gnwtbzffEBygN8gOcMAEvjRXxvtPnJsmAKiufFfppqO9TjA1Vp6Qt0rw/exec";
+  fetch(APPS_SCRIPT_URL + '?action=visit&page=' + encodeURIComponent(location.pathname) + '&ref=' + encodeURIComponent(document.referrer || '')).catch(function(){});
+})();
+</script>
+</body></html>

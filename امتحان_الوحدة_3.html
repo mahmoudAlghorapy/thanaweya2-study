@@ -1,0 +1,227 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>امتحان الوحدة الثالثة — تطبيقات الويب</title>
+<meta name="description" content="امتحان شامل على الوحدة الثالثة (تطبيقات الويب) — 50 درجة — مع نموذج الإجابة.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#172033;--muted:#5b6680;--line:#e4e8f0;--blue:#1769e0;--blue2:#0e4fae;--green:#0b8f6a;--amber:#d58a00;--red:#c74634;--navy:#16213a}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#f8fbff 0%,var(--bg) 100%);color:var(--ink);font-family:"Cairo","Tahoma",Arial,sans-serif;line-height:1.85}
+a{color:inherit;text-decoration:none}
+bdi{unicode-bidi:isolate}
+.wrap{max-width:1000px;margin:auto;padding:24px}
+header{position:sticky;top:0;z-index:10;background:rgba(248,251,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{max-width:1100px;margin:auto;padding:12px 24px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.brand{font-weight:900;margin-left:auto}
+.nav a{padding:7px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:14px}
+.nav a.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.cover{margin:30px 0 20px;background:var(--navy);color:#fff;border-radius:22px;padding:28px}
+.cover h1{margin:0 0 4px;font-size:clamp(28px,5vw,44px)}
+.cover p{margin:0;opacity:.85}
+.marks{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:20px}
+.marks div{background:rgba(255,255,255,.07);border-radius:14px;padding:12px;text-align:center}
+.marks b{display:block;color:#f2b134;font-size:30px;line-height:1.2}
+.marks span{font-size:13px;opacity:.85}
+.who{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}
+.who label{flex:1;min-width:200px;font-weight:700}
+.who input{width:100%;margin-top:4px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:12px;font:inherit;font-weight:800;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--ink)}
+.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 22px;margin:18px 0;box-shadow:0 5px 20px rgba(20,35,60,.05)}
+.qhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:10px}
+.qhead h2{margin:0;font-size:clamp(19px,3vw,24px)}
+.pts{background:#fff3d6;color:#8a5a00;border-radius:999px;padding:2px 12px;font-weight:800;white-space:nowrap}
+.qcard ol{padding-right:22px;margin:6px 0}
+.qcard li{margin:10px 0}
+.m{color:var(--amber);font-weight:800;white-space:nowrap}
+.blank{display:inline-block;min-width:150px;border:0;border-bottom:2px dotted #9aa5bb;background:transparent;font:inherit;color:var(--blue2);font-weight:700;padding:0 4px}
+.blank.ok{border-color:var(--green);color:var(--green)}
+.blank.bad{border-color:var(--red);color:var(--red)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chips span{background:#eef6ff;border:1px solid #cfe3ff;border-radius:999px;padding:3px 12px;font-weight:700;font-size:14px}
+pre{direction:ltr;text-align:left;background:#1d2433;color:#e6edf3;border-radius:14px;padding:12px 16px;overflow-x:auto;font:14px/1.7 "IBM Plex Mono",monospace;margin:8px 0;max-width:420px}
+pre .t{color:#79c0ff}pre .s{color:#9ee493}pre .k{color:#ffb86b}
+.fname{font:13px "IBM Plex Mono",monospace;color:var(--muted);direction:ltr;text-align:left;max-width:420px}
+code{font-family:"IBM Plex Mono",monospace;background:#edf3ff;color:var(--blue2);border-radius:6px;padding:1px 6px;direction:ltr;unicode-bidi:isolate}
+details.ans{border:1px solid #c8ecdf;background:#effbf7;border-radius:14px;padding:10px 16px;margin-top:14px}
+details.ans summary{cursor:pointer;font-weight:800;color:var(--green)}
+details.ans p,details.ans li{margin:6px 0}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:8px 0}
+th,td{border:1px solid #c8ecdf;padding:7px 9px;text-align:right;vertical-align:top}
+th{background:#d9f3e8}
+.tw{overflow-x:auto}
+.end{text-align:center;font-weight:800;color:var(--muted);margin:26px 0}
+footer{margin-top:30px;padding:22px 0;color:var(--muted);border-top:1px solid var(--line)}
+@media(max-width:760px){.marks{grid-template-columns:repeat(3,1fr)}.wrap{padding:16px}.nav{padding:10px 16px}.brand{width:100%}}
+@media print{header,.bar,details.ans,.noprint,footer{display:none!important}body{background:#fff}.qcard{box-shadow:none;break-inside:avoid}.cover{background:#fff;color:#000;border:2px solid #000}.marks div{border:1px solid #000}}
+</style></head><body>
+<header><nav class="nav">
+<div class="brand">🧪 امتحان الوحدة الثالثة — تطبيقات الويب</div>
+<a href="index.html">🏠 الرئيسية</a><a href="intro.html">📚 خريطة المنهج</a><a href="شرح_المنهج_من_الفصل_1_إلى_7.html">📖 شرح المنهج</a><a href="شرح_الوحدة_الثانية_الأمن_السيبراني.html">🔐 شرح الأمن السيبراني كاملًا</a><a href="اسئلة_الكتاب_كاملة_الفصول_1_7.html">📝 أسئلة الكتاب</a><a href="امتحان_الوحدة_الأولى_والثانية.html">🧪 امتحان تجريبي 1+2</a><a href="الوحدة_3_تطبيقات_الويب.html">🌐 شرح الوحدة 3</a><a class="active" href="امتحان_الوحدة_3.html">🧪 امتحان الوحدة 3</a>
+</nav></header>
+<main class="wrap">
+<section class="cover">
+<h1>امتحان الوحدة الثالثة</h1>
+<p>مادة البرمجة والذكاء الاصطناعي — الصف الثاني الثانوي · الزمن: ساعة ونصف · الدرجة الكلية: 50</p>
+<div class="marks">
+<div><b>5</b><span>السؤال الأول · أكمل</span></div>
+<div><b>13</b><span>السؤال الثاني · الدرس <bdi dir="ltr">3-1</bdi></span></div>
+<div><b>14</b><span>السؤال الثالث · الدرس <bdi dir="ltr">3-2</bdi></span></div>
+<div><b>13</b><span>السؤال الرابع · الدرس <bdi dir="ltr">3-3</bdi></span></div>
+<div><b>5</b><span>السؤال الخامس · سؤال شامل</span></div>
+</div>
+</section>
+<p>أجب عن جميع الأسئلة — الدرجة موضحة أمام كل سؤال. حل الأول في ورقة، وبعدها افتح «نموذج الإجابة» تحت كل سؤال وصحّح لنفسك.</p>
+<div class="who"><label>الاسم: <input type="text" autocomplete="name"></label><label>الفصل: <input type="text"></label></div>
+<div class="bar noprint">
+<button class="btn" type="button" id="toggleAll">👁️ إظهار كل نماذج الإجابة</button>
+<button class="btn" type="button" onclick="window.print()">🖨️ طباعة الامتحان (بدون الإجابات)</button>
+<a class="btn" href="الوحدة_3_تطبيقات_الويب.html">📖 ارجع للشرح</a>
+</div>
+
+<!-- Q1 -->
+<section class="qcard">
+<div class="qhead"><h2>السؤال الأول: أكمل العبارات التالية</h2><span class="pts">5 درجات</span></div>
+<ol id="q1">
+<li>الطبقة التي تحفظ البيانات التي يحتاجها التطبيق وتوفرها عند الحاجة تُسمى <input class="blank" data-a="قاعدة البيانات|قاعده البيانات|قواعد البيانات|database" aria-label="إجابة 1">.</li>
+<li>رمز حالة <bdi>HTTP</bdi> الذي يعني أن المورد المطلوب غير موجود بهذا العنوان هو <input class="blank" data-a="404" inputmode="numeric" aria-label="إجابة 2">.</li>
+<li>صيغة نصية شائعة لتمثيل وتبادل البيانات المهيكلة باستخدام كائنات ومصفوفات وقيم بسيطة هي <input class="blank" data-a="json" aria-label="إجابة 3">.</li>
+<li>التقنية التي تضيف السلوك والتفاعلية إلى صفحة الويب هي <input class="blank" data-a="javascript|js|جافا سكريبت|جافاسكريبت" aria-label="إجابة 4">.</li>
+<li>النهج الذي يراعي فيه المطورون الشاشات الصغيرة منذ بداية التصميم يُسمى <input class="blank" data-a="الأولوية للجوال|الاولوية للجوال|الأولوية للموبايل|الاولويه للجوال|mobile first|mobile-first" aria-label="إجابة 5">.</li>
+</ol>
+<div class="bar noprint"><button class="btn primary" type="button" id="checkQ1">✔️ صحّح السؤال الأول</button><span id="q1score" style="font-weight:800;align-self:center"></span></div>
+<details class="ans"><summary>✔️ نموذج الإجابة [5]</summary><ol>
+<li>قاعدة البيانات</li><li>404</li><li>JSON</li><li>JavaScript</li><li>الأولوية للجوال</li>
+</ol></details>
+</section>
+
+<!-- Q2 -->
+<section class="qcard">
+<div class="qhead"><h2>السؤال الثاني: البنية العامة لتطبيقات الويب (الدرس <bdi dir="ltr">3-1</bdi>)</h2><span class="pts">13 درجة</span></div>
+<ol>
+<li>عرّف تطبيق الويب مع ذكر مثالين، ثم اشرح الطبقات الثلاث لتطبيق الويب موضحًا دور كل طبقة ومثالًا لها. <span class="m">[4 درجات]</span></li>
+<li>اشرح بالترتيب الخطوات الست لتعاون الطبقات الثلاث عندما يبحث مستخدم عن منتج في متجر إلكتروني. <span class="m">[3 درجات]</span></li>
+<li>علّل: لا يمكن للواجهة الأمامية وحدها أن تعرض نتائج بحث صحيحة. ثم بيّن: أي طبقة تجمع المدخلات؟ وأي طبقة تجد الإجابة؟ <span class="m">[2 درجة]</span></li>
+<li>قارن بين موقع مشاركة الفيديو وشبكة التواصل الاجتماعي من حيث دور كل طبقة. وما الذي يتغير من خدمة إلى أخرى مع أن البنية واحدة؟ <span class="m">[2 درجة]</span></li>
+<li>مكتبة مدرسية تريد تطبيق ويب لحجز الكتب ومتابعة الاستعارات السابقة: (أ) وزّع على الطبقات مع التعليل: نموذج الحجز – التحقق من توفر الكتاب – تخزين سجل الاستعارات. (ب) فتحت صفحة الحجز لكن لم تظهر أي كتب؛ ما الأجزاء التي قد تكون السبب؟ (ج) هل تنصح بتنظيم المسؤوليات في طبقات واضحة؟ برّر بسببين. <span class="m">[2 درجة]</span></li>
+</ol>
+<details class="ans"><summary>✔️ نموذج الإجابة [13]</summary>
+<p><b>(1) [4]</b> تطبيق الويب: تطبيق يُستخدم عادةً عبر متصفح الويب، وقد يكون بعضه قابلًا للتثبيت (فيديو، تسوق، بريد، خرائط).</p>
+<ul><li><b>الأمامية:</b> يراها المستخدم ويتفاعل معها؛ تعرض وتستقبل المدخلات (شاشة البحث).</li><li><b>الخلفية:</b> على الخادم؛ تعالج الطلبات وتطبّق القواعد (التحقق من الدخول).</li><li><b>قاعدة البيانات:</b> تحفظ البيانات وتوفرها (سجل الطلبات).</li></ul>
+<p><b>(2) [3 – نصف درجة لكل خطوة]</b> تستقبل الأمامية كلمات البحث ← ترسلها للخلفية ← تطلب الخلفية المنتجات المطابقة من قاعدة البيانات ← تعيد قاعدة البيانات النتائج ← تجهّزها الخلفية وترسلها للأمامية ← تعرضها الأمامية على الشاشة.</p>
+<p><b>(3) [2]</b> لأن البيانات في قاعدة البيانات، والبحث فيها وتطبيق معاييره مهمة الواجهة الخلفية؛ فالأمامية تعرض وتجمع فقط. المدخلات تجمعها الأمامية، والإجابة تُوجد بمعالجة الخلفية لبيانات قاعدة البيانات.</p>
+<p><b>(4) [2]</b></p>
+<div class="tw"><table>
+<tr><th>الطبقة</th><th>موقع الفيديو</th><th>شبكة التواصل</th></tr>
+<tr><td>الأمامية</td><td>شاشات تشغيل الفيديو والبحث</td><td>الخط الزمني وشاشات النشر</td></tr>
+<tr><td>الخلفية</td><td>الفيديوهات الموصى بها وتجميع المشاهدات</td><td>الجمهور المستهدف والإشعارات</td></tr>
+<tr><td>البيانات</td><td>الفيديو والمستخدمون وسجل المشاهدة</td><td>المنشورات والمتابعة والرسائل</td></tr>
+</table></div>
+<p>الذي يتغير: نوع البيانات، وقواعد المعالجة، والشاشات المعروضة؛ أما البنية فثابتة.</p>
+<p><b>(5) [2]</b> (أ) نموذج الحجز ← الأمامية؛ التحقق من توفر الكتاب ← الخلفية؛ سجل الاستعارات ← قاعدة البيانات. (ب) الخلفية أو قاعدة البيانات أو الاتصال بينهما، لأن الصفحة نفسها فتحت. (ج) نعم: يسهّل تحديد مكان الخطأ وإصلاحه، ويسمح بتعديل طبقة دون إعادة بناء الباقي.</p>
+</details>
+</section>
+
+<!-- Q3 -->
+<section class="qcard">
+<div class="qhead"><h2>السؤال الثالث: طرق اتصال تطبيقات الويب (الدرس <bdi dir="ltr">3-2</bdi>)</h2><span class="pts">14 درجة</span></div>
+<ol>
+<li>عرّف كلًّا من العميل والخادم مع مثال لكل منهما، ثم وضّح المقصود بنموذج الطلب والاستجابة. <span class="m">[2 درجة]</span></li>
+<li>قارن بين <bdi>HTTP</bdi> و<bdi>HTTPS</bdi> (التعريف – الحماية – شكل العنوان)، ثم علّل: يجب أن تستخدم صفحة تسجيل الدخول <bdi>HTTPS</bdi>. <span class="m">[3 درجات]</span></li>
+<li>ما المقصود بطريقة طلب <bdi>HTTP</bdi>؟ قارن بين <bdi>GET</bdi> و<bdi>POST</bdi> مع مثالين لكل منهما، ثم حدد الأسلوب المناسب لكل من: تحميل سجل درجات الطالب – إرسال نموذج تسجيل الدخول. <span class="m">[3 درجات]</span></li>
+<li>ما المقصود برمز حالة <bdi>HTTP</bdi>؟ اشرح معنى 200 و404 و500، ثم: إذا استقبل المتصفح 404 فماذا يخبر المستخدم؟ ولماذا لا يكفي 500 وحده لمعرفة السبب؟ <span class="m">[3 درجات]</span></li>
+<li>عرّف <bdi>API</bdi> وصيغة <bdi>JSON</bdi>، ثم حدد في البيانات التالية جميع المفاتيح والقيم، وبيّن أي قيمة تمثل مصفوفة. <span class="m">[3 درجات]</span>
+<div class="fname">student.json</div>
+<pre>{
+  <span class="t">"student"</span>: <span class="s">"Omar"</span>,
+  <span class="t">"grade"</span>: <span class="k">2</span>,
+  <span class="t">"subjects"</span>: [<span class="s">"Programming"</span>, <span class="s">"Math"</span>],
+  <span class="t">"passed"</span>: <span class="k">true</span>
+}</pre></li>
+</ol>
+<details class="ans"><summary>✔️ نموذج الإجابة [14]</summary>
+<p><b>(1) [2]</b> العميل: برنامج أو جهاز يرسل طلبًا إلى خدمة أخرى (المتصفح). الخادم: يستقبل الطلبات ويعالجها ويعيد الاستجابات (خادم الويب). النموذج: يرسل العميل طلبًا ويعيد الخادم استجابة وفق قواعد بروتوكول مثل <bdi>HTTP</bdi>.</p>
+<p><b>(2) [3]</b></p>
+<div class="tw"><table>
+<tr><th>المقارنة</th><th>HTTP</th><th>HTTPS</th></tr>
+<tr><td>التعريف</td><td>بروتوكول لتبادل الرسائل بين عميل وخادم</td><td><bdi>HTTP</bdi> عبر اتصال <bdi>TLS</bdi> آمن</td></tr>
+<tr><td>الحماية</td><td>لا يحمي المحتوى</td><td>يحمي السرية والسلامة ويصادق على الخادم</td></tr>
+<tr><td>العنوان</td><td><code>http://</code></td><td><code>https://</code></td></tr>
+</table></div>
+<p>التعليل: صفحة الدخول ترسل بيانات حساسة، و<bdi>HTTPS</bdi> يمنع المتجسس من قراءتها أو تعديلها ويتحقق من هوية الخادم.</p>
+<p><b>(3) [3]</b> طريقة طلب <bdi>HTTP</bdi>: معلومات في الطلب توضح نوع العملية المطلوبة. <bdi>GET</bdi>: لطلب مورد أو بيانات (عرض صفحة، نتائج البحث). <bdi>POST</bdi>: لإرسال بيانات ليعالجها الخادم (بيانات الدخول، محتويات نموذج). سجل الدرجات ← <bdi>GET</bdi> · نموذج الدخول ← <bdi>POST</bdi>.</p>
+<p><b>(4) [3]</b> رمز الحالة: رقم في الاستجابة يشير إلى نتيجة المعالجة. 200 نجاح · 404 المورد غير موجود بهذا العنوان · 500 خطأ داخلي في الخادم. عند 404 يُخبَر المستخدم أن الصفحة غير موجودة (عنوان خطأ أو صفحة محذوفة). 500 يخبر بوجود خطأ في جانب الخادم فقط ولا يحدد السبب التفصيلي.</p>
+<p><b>(5) [3]</b> <bdi>API</bdi>: قواعد واضحة تسمح لبرنامج بطلب بيانات أو وظائف من برنامج آخر. <bdi>JSON</bdi>: صيغة نصية لتمثيل وتبادل البيانات المهيكلة بكائنات ومصفوفات وقيم بسيطة.</p>
+<div class="tw"><table>
+<tr><th>المفتاح</th><th>القيمة</th></tr>
+<tr><td><code>"student"</code></td><td><code>"Omar"</code></td></tr>
+<tr><td><code>"grade"</code></td><td><code>2</code></td></tr>
+<tr><td><code>"subjects"</code></td><td><code>["Programming", "Math"]</code> ← المصفوفة</td></tr>
+<tr><td><code>"passed"</code></td><td><code>true</code></td></tr>
+</table></div>
+</details>
+</section>
+
+<!-- Q4 -->
+<section class="qcard">
+<div class="qhead"><h2>السؤال الرابع: أساسيات تقنية الواجهة الأمامية (الدرس <bdi dir="ltr">3-3</bdi>)</h2><span class="pts">13 درجة</span></div>
+<ol>
+<li>اشرح دور كل من <bdi>HTML</bdi> و<bdi>CSS</bdi> و<bdi>JavaScript</bdi> في بناء صفحة الويب مع التشبيه المناسب لكل منها بأجزاء المبنى، ثم بيّن: هل يجب أن تستخدم كل صفحة التقنيات الثلاث معًا؟ <span class="m">[4 درجات]</span></li>
+<li>ما المقصود بـ <bdi>HTML</bdi> الدلالي؟ اذكر أربعة من عناصره مع وظيفة كل عنصر، واشرح فائدتين لاستخدامه، ثم علّل: لا يضمن ظهور الصفحة في أعلى نتائج البحث. <span class="m">[3 درجات]</span></li>
+<li>عرّف التصميم المتجاوب، واذكر سبب الحاجة إليه، وما المقصود بنهج «الأولوية للجوال»؟ <span class="m">[2 درجة]</span></li>
+<li>ما المقصود بإطار العمل؟ وما فائدة استخدامه؟ وفرّق بين <bdi>React</bdi> و<bdi>Next.js</bdi>. <span class="m">[2 درجة]</span></li>
+<li>موقع إخباري: صعب القراءة على الهاتف، وقارئ الشاشة لا يفهم أجزاء الصفحة، وكل المحتوى والتنسيق والسلوك في ملف واحد بلا تنظيم. اقترح حلًّا لكل مشكلة مع التعليل. <span class="m">[2 درجة]</span></li>
+</ol>
+<details class="ans"><summary>✔️ نموذج الإجابة [13]</summary>
+<p><b>(1) [4]</b> <bdi>HTML</bdi> يحدد البنية ← هيكل المبنى. <bdi>CSS</bdi> يحدد المظهر ← الديكور. <bdi>JavaScript</bdi> يضيف السلوك والتفاعل ← الكهرباء والسباكة. ليس ضروريًا استخدام الثلاثة؛ يمكن <bdi>HTML</bdi> وحده أو معه <bdi>CSS</bdi> و<bdi>JavaScript</bdi> حسب الحاجة.</p>
+<p><b>(2) [3]</b> عناصر توضح وظيفة أجزاء الصفحة: <code>header</code> أعلى الصفحة، <code>nav</code> التنقل، <code>main</code> المحتوى الرئيسي، <code>footer</code> أسفل الصفحة. فائدتاه: إمكانية الوصول، وفهم محركات البحث. لا يضمن ترتيبًا أعلى لأنه يساعد على الفهم فقط.</p>
+<p><b>(3) [2]</b> التخطيط يُضبط تلقائيًا حسب حجم الشاشة؛ لأن المواقع تُفتح من أجهزة متنوعة. الأولوية للجوال: مراعاة الشاشات الصغيرة منذ بداية التصميم.</p>
+<p><b>(4) [2]</b> إطار العمل: بنية توفر مسبقًا وظائف ومكونات شائعة لتطوير أكثر كفاءة دون كتابة كل الكود من الصفر. <bdi>React</bdi>: مكتبة <bdi>JavaScript</bdi> لواجهات المستخدم من مكونات قابلة لإعادة الاستخدام. <bdi>Next.js</bdi>: إطار مبني على <bdi>React</bdi> يوفر التوجيه والعمل على الخادم والعميل.</p>
+<p><b>(5) [2]</b> الهاتف ← التصميم المتجاوب · قارئ الشاشة ← <bdi>HTML</bdi> الدلالي · الملف الواحد ← فصل <bdi>HTML</bdi> و<bdi>CSS</bdi> و<bdi>JavaScript</bdi> كلٌّ حسب دوره؛ لتسهيل التعديل واكتشاف الأخطاء.</p>
+</details>
+</section>
+
+<!-- Q5 -->
+<section class="qcard">
+<div class="qhead"><h2>السؤال الخامس: سؤال شامل يربط الوحدة كلها</h2><span class="pts">5 درجات</span></div>
+<p>ضغط طالب على زر «عرض نتيجتي» في موقع المدرسة من هاتفه، فظهرت النتيجة داخل جزء من الصفحة دون إعادة تحميلها كاملة. تتبّع ما حدث خطوة بخطوة من لحظة الضغط حتى ظهور النتيجة، مستخدمًا المصطلحات التالية:</p>
+<div class="chips"><span>العميل والخادم</span><span>الطبقات الثلاث</span><span>البروتوكول المناسب</span><span>طريقة الطلب</span><span>رمز الحالة</span><span><bdi>API</bdi> و <bdi>JSON</bdi></span><span>دور <bdi>JavaScript</bdi></span><span>التصميم المتجاوب</span></div>
+<details class="ans"><summary>✔️ نموذج الإجابة [5]</summary><ol>
+<li>الموقع مصمم بـ التصميم المتجاوب فيظهر الزر مناسبًا على شاشة الهاتف.</li>
+<li>تستقبل الواجهة الأمامية الضغطة، والعميل (المتصفح) يرسل طلب <bdi>GET</bdi> لأنه يسترجع بيانات.</li>
+<li>يُرسَل الطلب عبر <bdi>HTTPS</bdi> لأن النتيجة بيانات شخصية؛ فيحمي <bdi>TLS</bdi> سريتها وسلامتها.</li>
+<li>يستقبل الخادم الطلب عبر <bdi>API</bdi>، وتعالجه الواجهة الخلفية وتطلب النتيجة من قاعدة البيانات.</li>
+<li>يرد الخادم برمز 200 والنتيجة بصيغة <bdi>JSON</bdi>، فتحدّث <bdi>JavaScript</bdi> جزء النتيجة فقط دون إعادة تحميل.</li>
+</ol><p>تُقبل أي إجابة منطقية بنفس التسلسل. (لو الصفحة غير موجودة يظهر 404، ولو في مشكلة بالخادم 500.)</p></details>
+</section>
+
+<p class="end">انتهت الأسئلة — مع تمنياتنا بالتوفيق 🌟</p>
+<footer>امتحان الوحدة الثالثة «تطبيقات الويب» — كل الإجابات مأخوذة من الكتاب، الوحدة الثالثة (الدروس <bdi dir="ltr">3-1</bdi> و<bdi dir="ltr">3-2</bdi> و<bdi dir="ltr">3-3</bdi>)، والدرجة بين القوسين [ ]. · م. محمود محمد · <a href="https://wa.me/201023958338" target="_blank" rel="noopener">📲 واتساب</a></footer>
+</main>
+<script>
+(function(){
+  var norm = function(s){ return s.trim().toLowerCase().replace(/[ًٌٍَُِّْـ]/g,'').replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/\s+/g,' '); };
+  document.getElementById('checkQ1').onclick = function(){
+    var score = 0;
+    document.querySelectorAll('#q1 .blank').forEach(function(inp){
+      var ok = inp.dataset.a.split('|').some(function(a){ return norm(a) === norm(inp.value); });
+      inp.classList.toggle('ok', ok); inp.classList.toggle('bad', !ok);
+      if (ok) score++;
+    });
+    document.getElementById('q1score').textContent = 'درجتك: ' + score + ' / 5';
+  };
+  var all = document.getElementById('toggleAll'), shown = false;
+  all.onclick = function(){
+    shown = !shown;
+    document.querySelectorAll('details.ans').forEach(function(d){ d.open = shown; });
+    all.textContent = shown ? '🙈 إخفاء كل نماذج الإجابة' : '👁️ إظهار كل نماذج الإجابة';
+  };
+})();
+(function(){
+  var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyZigwbjJMvA0gnwtbzffEBygN8gOcMAEvjRXxvtPnJsmAKiufFfppqO9TjA1Vp6Qt0rw/exec";
+  fetch(APPS_SCRIPT_URL + '?action=visit&page=' + encodeURIComponent(location.pathname) + '&ref=' + encodeURIComponent(document.referrer || '')).catch(function(){});
+})();
+</script>
+</body></html>
