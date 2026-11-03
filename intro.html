@@ -38,15 +38,18 @@
     background:rgba(7,22,26,.86);backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px;}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;}
+  nav .wrap{display:flex;flex-direction:column;align-items:center;gap:10px;padding-top:12px;padding-bottom:12px;max-width:1100px;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;white-space:nowrap;flex:none;}
   .brand .mark{
     width:30px;height:30px;border-radius:9px;flex:none;
     background:linear-gradient(135deg,var(--teal-b),var(--teal));
     color:#062023;display:flex;align-items:center;justify-content:center;
     font-family:var(--mono);font-size:13px;font-weight:600;
   }
-  .navlinks{display:flex;gap:18px;font-size:14px;font-weight:700;color:var(--dim);}
+  .navlinks{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 10px;font-size:14px;font-weight:700;color:var(--dim);}
+  .navlinks a{white-space:nowrap;padding:6px 12px;border:1px solid transparent;border-radius:9px;transition:background .15s,border-color .15s;}
+  .navlinks a:hover{background:rgba(45,212,191,.08);border-color:var(--line);}
+  .navlinks a.active{color:var(--teal-b);background:rgba(45,212,191,.12);border-color:rgba(45,212,191,.35);}
   .navlinks a:hover{color:var(--teal-b);}
   @media(max-width:720px){.navlinks{display:none;}}
 
@@ -225,10 +228,9 @@
     <div class="brand"><span class="mark">&lt;/&gt;</span> البرمجة والذكاء الاصطناعي</div>
     <div class="navlinks">
       <a href="index.html">🏠 الرئيسية</a><a href="الوحدات.html">🗂️ الوحدات والامتحانات</a>
-      <a href="شرح_المنهج_من_الفصل_1_إلى_7.html">📖 شرح المنهج</a><a href="شرح_الوحدة_الثانية_الأمن_السيبراني.html">🔐 شرح الأمن السيبراني كاملًا</a><a href="اسئلة_الكتاب_كاملة_الفصول_1_7.html">📝 أسئلة الكتاب</a><a href="امتحان_الوحدة_الأولى_والثانية.html">🧪 امتحان تجريبي 1+2</a><a href="الوحدة_3_تطبيقات_الويب.html">🌐 شرح الوحدة 3</a><a href="امتحان_الوحدة_3.html">🧪 امتحان الوحدة 3</a><a href="intro.html">📚 خريطة المنهج</a>
+      <a href="شرح_المنهج_من_الفصل_1_إلى_7.html">📖 شرح المنهج</a><a href="شرح_الوحدة_الثانية_الأمن_السيبراني.html">🔐 شرح الأمن السيبراني كاملًا</a><a href="اسئلة_الكتاب_كاملة_الفصول_1_7.html">📝 أسئلة الكتاب</a><a href="امتحان_الوحدة_الأولى_والثانية.html">🧪 امتحان تجريبي 1+2</a><a href="الوحدة_3_تطبيقات_الويب.html">🌐 شرح الوحدة 3</a><a href="امتحان_الوحدة_3.html">🧪 امتحان الوحدة 3</a><a class="active" href="intro.html">📚 خريطة المنهج</a>
       <a href="#curriculum">الفصول</a>
       <a href="#method">طريقة الشرح</a>
-      <a href="#join">التسجيل</a>
     </div>
   </div>
 </nav>
